@@ -1,0 +1,8 @@
+D:\gotod-games\GJL-Game-Jam\.mono\temp\obj\Debug\GJL Game Jam.csprojAssemblyReference.cache
+D:\gotod-games\GJL-Game-Jam\.mono\temp\obj\Debug\GJL Game Jam.AssemblyInfoInputs.cache
+D:\gotod-games\GJL-Game-Jam\.mono\temp\obj\Debug\GJL Game Jam.AssemblyInfo.cs
+D:\gotod-games\GJL-Game-Jam\.mono\temp\obj\Debug\GJL Game Jam.csproj.CoreCompileInputs.cache
+D:\gotod-games\GJL-Game-Jam\.mono\temp\bin\Debug\GJL Game Jam.dll
+D:\gotod-games\GJL-Game-Jam\.mono\temp\bin\Debug\GJL Game Jam.pdb
+D:\gotod-games\GJL-Game-Jam\.mono\temp\obj\Debug\GJL Game Jam.dll
+D:\gotod-games\GJL-Game-Jam\.mono\temp\obj\Debug\GJL Game Jam.pdb
