@@ -1,0 +1,8 @@
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\bin\Debug\GJL Game Jam.dll
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\bin\Debug\GJL Game Jam.pdb
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\obj\Debug\GJL Game Jam.csprojAssemblyReference.cache
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\obj\Debug\GJL Game Jam.AssemblyInfoInputs.cache
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\obj\Debug\GJL Game Jam.AssemblyInfo.cs
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\obj\Debug\GJL Game Jam.csproj.CoreCompileInputs.cache
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\obj\Debug\GJL Game Jam.dll
+C:\Users\JRW\Documents\GJL Game Jam\.mono\temp\obj\Debug\GJL Game Jam.pdb
