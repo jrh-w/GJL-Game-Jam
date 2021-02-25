@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ﻿58361
 D:\godot\Godot_v3.2.3-stable_mono_win64.exe
+=======
+﻿51861
+C:\Users\JRW\Pobrane\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64.exe
+>>>>>>> 89718095669d5a68b7c7601b97491e54a9747a39
