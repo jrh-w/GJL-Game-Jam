@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="roundInfo" type="ColorRect"]
+margin_left = 62.0
+margin_top = 520.0
+margin_right = 962.0
+margin_bottom = 570.0
+color = Color( 0.631373, 0.498039, 0.498039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roundCounter" type="Label" parent="."]
+margin_left = 840.102
+margin_top = 10.2245
+margin_right = 880.102
+margin_bottom = 39.2245
+text = "10"
+align = 1
+valign = 1

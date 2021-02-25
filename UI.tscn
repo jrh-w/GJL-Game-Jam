@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://roundInfo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI.gd" type="Script" id=2]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 62.0
+margin_top = 530.0
+margin_right = -61.9999
+margin_bottom = -20.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 900.0
+margin_bottom = 50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 900.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 900, 30 )
+
+[node name="roundInfo" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 900.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 900, 50 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/roundInfo"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 805.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 800, 40 )
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}

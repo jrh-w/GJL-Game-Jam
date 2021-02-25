@@ -35,13 +35,13 @@ func _physics_process(delta):
 		global_position = lerp(global_position, rest_point, 10 * delta)
 
 #func _input(event):
-#	if event is InputEventMouseButton:
-#		if event.button_index == BUTTON_LEFT and not event.pressed:
-#			selected = false
-#			var shortest_dist = 75
-#			for child in rest_nodes:
-#				var distance = global_position.distance_to(child.global_position)
-#				if distance < shortest_dist:
-#					child.select()
-#					rest_point = child.global_position
-#					shortest_dist = distance
+#    if event is InputEventMouseButton:
+#        if event.button_index == BUTTON_LEFT and not event.pressed:
+#            selected = false
+#            var shortest_dist = 75
+#            for child in rest_nodes:
+#                var distance = global_position.distance_to(child.global_position)
+#                if distance < shortest_dist:
+#                    child.select()
+#                    rest_point = child.global_position
+#                    shortest_dist = distance
