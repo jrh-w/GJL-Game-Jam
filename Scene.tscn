@@ -25,6 +25,8 @@ position = Vector2( 285.609, 471.284 )
 
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 285.609, 259.605 )
+z_index = 1
 
 [node name="Node2D2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 496.099, 103.819 )
+z_index = 1
