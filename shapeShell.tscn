@@ -9,3 +9,7 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 7.5, 7.5 )
+scale = Vector2( 0.1, 0.1 )
