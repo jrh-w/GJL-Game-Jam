@@ -5,7 +5,7 @@ extends MarginContainer
 # var a = 2
 # var b = "text"
 
-onready var playButton = get_node("HBoxContainer/VBoxContainer/playButton")
+onready var playButton = get_node("HBoxContainer/VBoxContainer/initialMenu/playButton")
 onready var menu1 = get_node("HBoxContainer/VBoxContainer/initialMenu")
 onready var menu2 = get_node("HBoxContainer/levelMenu")
 
