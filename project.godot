@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GJL Game Jam"
+run/main_scene="res://Main_Menu.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
@@ -29,4 +30,5 @@ singletons=[ "res://git_api.gdnlib" ]
 
 [rendering]
 
+environment/default_clear_color=Color( 0.972549, 0.937255, 0.937255, 1 )
 environment/default_environment="res://default_env.tres"
