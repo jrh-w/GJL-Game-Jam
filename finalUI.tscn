@@ -67,7 +67,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -50.0
+margin_left = -70.0
 margin_top = -100.0
 margin_bottom = 100.0
 mouse_filter = 2
@@ -76,13 +76,13 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="backButtonContainer"]
-margin_right = 50.0
+margin_right = 70.0
 margin_bottom = 200.0
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
 margin_top = 80.0
-margin_right = 50.0
+margin_right = 70.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 3 )
