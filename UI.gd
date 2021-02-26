@@ -30,6 +30,10 @@ var shapeTable = [0, 2, 3]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_colors()
+	#get_node("MarginContainer2").position.x = 287
+	#get_node("MarginContainer2").position.y = 500
+	#print(get_node("MarginContainer2/HBoxContainer/Arrow").rect_global_position)
+	#print(get_node("MarginContainer2/HBoxContainer/Arrow").get_size())
 	pass # Replace with function body.
 
 func get_colors(colorTab = colorTable, shapeTab = shapeTable):
@@ -46,9 +50,17 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 			#shape.get_node()
 			color = color + 1
 		container.add_child(box)
+	box = new_box.instance()
+	# Add "Lose" PNG <-----------------------------------
+	container.add_child(box)
 		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
+	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - 50
+	vect.y = get_node("arrowContainer").rect_position.y
+	get_node("arrowContainer").set_position(vect)
+	print(vect)
+	pass

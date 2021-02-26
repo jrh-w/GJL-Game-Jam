@@ -32,32 +32,26 @@ __meta__ = {
 margin_left = 15.0
 margin_right = 1009.0
 margin_bottom = 50.0
+alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -100.0
-margin_bottom = -10.0
-rect_min_size = Vector2( 640, 50 )
+[node name="arrowContainer" type="MarginContainer" parent="."]
+margin_top = 500.0
+margin_right = 994.0
+margin_bottom = 590.0
 custom_constants/margin_right = 20
 custom_constants/margin_left = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+[node name="Arrow" parent="arrowContainer" instance=ExtResource( 1 )]
 margin_left = 20.0
-margin_right = 1004.0
+margin_right = 974.0
 margin_bottom = 90.0
+rect_min_size = Vector2( 90, 90 )
 
-[node name="Arrow" parent="MarginContainer2/HBoxContainer" instance=ExtResource( 1 )]
-margin_right = 640.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 640, 50 )
+[node name="Area2D" type="Area2D" parent="arrowContainer/Arrow"]
 
-[node name="Area2D" type="Area2D" parent="MarginContainer2/HBoxContainer/Arrow"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer2/HBoxContainer/Arrow/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrowContainer/Arrow/Area2D"]
 position = Vector2( 40.0594, 44.1785 )
 shape = SubResource( 1 )
