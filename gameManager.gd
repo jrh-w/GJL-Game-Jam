@@ -36,7 +36,7 @@ func restart_round():
 			get_node("innerGame/" + route.card).rest_point = route.from
 			if !route.doneWhilePaused:
 				get_node("UI/TextureRect").offset -= 93
-
+				
 func backOneRound():
 	if !roundEnd && history.size() > 1:
 			var route1 = history.pop_front()
