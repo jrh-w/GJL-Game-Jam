@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bottomUI.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://reverseButton.gd" type="Script" id=6]
 [ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=7]
 [ext_resource path="res://menuGameButton.gd" type="Script" id=8]
+[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=9]
+[ext_resource path="res://colorPalette/UI_Button_back_1.png" type="Texture" id=10]
+[ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.3853, 45.2808 )
@@ -84,22 +87,24 @@ margin_right = 70.0
 margin_bottom = 200.0
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
+[node name="restartButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
 margin_top = 58.0
 margin_right = 70.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 11 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 4 )
 
-[node name="TextureButton2" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
+[node name="reverseButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
 margin_top = 102.0
 margin_right = 70.0
 margin_bottom = 142.0
 rect_min_size = Vector2( 70, 40 )
 texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 10 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 6 )
@@ -119,9 +124,10 @@ margin_right = 100.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 8 )
-[connection signal="pressed" from="backButtonContainer/VBoxContainer/TextureButton" to="backButtonContainer/VBoxContainer/TextureButton" method="_on_TextureButton_pressed"]
-[connection signal="pressed" from="backButtonContainer/VBoxContainer/TextureButton2" to="backButtonContainer/VBoxContainer/TextureButton2" method="_on_TextureButton2_pressed"]
+[connection signal="pressed" from="backButtonContainer/VBoxContainer/restartButton" to="backButtonContainer/VBoxContainer/restartButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="backButtonContainer/VBoxContainer/reverseButton" to="backButtonContainer/VBoxContainer/reverseButton" method="_on_TextureButton2_pressed"]
 [connection signal="pressed" from="menuButtonContainer/VBoxContainer/menuButton" to="menuButtonContainer/VBoxContainer/menuButton" method="_on_menuButton_pressed"]
