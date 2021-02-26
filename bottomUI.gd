@@ -14,6 +14,8 @@ onready var circle = load("res://colorPalette/circle.png")
 onready var Hexagon = load("res://colorPalette/Hexagon.png")
 onready var triangle = load("res://colorPalette/triangle.png")
 
+var offset = 0 # 93 is the space between one block
+
 var colorDict = {
 	"blue": Color(0.298, 0.2588, 0.5882),
 	"orange": Color(1, 0.3922, 0.2392),
@@ -59,7 +61,8 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
-	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - 50
+	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - (6 * (get_viewport().size.x / 1024))
 	vect.y = get_node("arrowContainer").rect_position.y
+	print(get_viewport().size.y)
 	get_node("arrowContainer").set_position(vect)
 	pass
