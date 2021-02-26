@@ -53,7 +53,8 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 			color = color + 1
 		container.add_child(box)
 	box = new_box.instance()
-	# Add "Lose" PNG <-----------------------------------
+	box.isEndBlock = true
+	# Add "End" PNG <-----------------------------------
 	container.add_child(box)
 		
 
@@ -61,8 +62,7 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
-	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - (6 * (get_viewport().size.x / 1024))
+	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - (6 * (get_viewport().size.x / 1024)) + offset
 	vect.y = get_node("arrowContainer").rect_position.y
-	print(get_viewport().size.y)
 	get_node("arrowContainer").set_position(vect)
 	pass
