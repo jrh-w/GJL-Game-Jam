@@ -15,7 +15,5 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_TextureButton2_pressed():
+func _on_reverseButton_pressed():
 	get_tree().get_root().get_node("Level").reverse_round()
-	pass # Replace with function body.

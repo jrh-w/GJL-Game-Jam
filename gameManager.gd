@@ -52,7 +52,6 @@ func reverse_round():
 		get_node("innerGame/" + route.card).rest_point.deselect()
 		get_node("innerGame/" + route.card).rest_point = route.from
 		get_node("UI/TextureRect").offset -= 93
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

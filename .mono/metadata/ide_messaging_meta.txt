@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-﻿49995
-D:\godot\Godot_v3.2.3-stable_mono_win64.exe
-=======
-﻿52956
+﻿53317
 C:\Users\JRW\Pobrane\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64.exe
->>>>>>> eaf0612ec5d79c1560981981f3936005596e7f2a

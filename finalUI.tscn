@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bottomUI.gd" type="Script" id=2]
 [ext_resource path="res://colorPalette/UI_Button_restart.png" type="Texture" id=3]
 [ext_resource path="res://restartButton.gd" type="Script" id=4]
+[ext_resource path="res://reverseButton.gd" type="Script" id=5]
+[ext_resource path="res://colorPalette/UI_Button_back_1.png" type="Texture" id=6]
+[ext_resource path="res://colorPalette/UI_Button_back.png" type="Texture" id=7]
+[ext_resource path="res://menuGameButton.gd" type="Script" id=8]
+[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=9]
+[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.3853, 45.2808 )
@@ -80,13 +86,49 @@ margin_right = 70.0
 margin_bottom = 200.0
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
-margin_top = 80.0
+[node name="restartButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
+margin_top = 58.0
 margin_right = 70.0
-margin_bottom = 120.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 4 )
-[connection signal="pressed" from="backButtonContainer/VBoxContainer/TextureButton" to="backButtonContainer/VBoxContainer/TextureButton" method="_on_TextureButton_pressed"]
+
+[node name="reverseButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 70.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 70, 40 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 5 )
+
+[node name="menuButtonContainer" type="MarginContainer" parent="."]
+margin_right = 100.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menuButtonContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+alignment = 1
+
+[node name="menuButton" type="TextureButton" parent="menuButtonContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 100.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 40 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 8 )
+[connection signal="pressed" from="backButtonContainer/VBoxContainer/restartButton" to="backButtonContainer/VBoxContainer/restartButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="backButtonContainer/VBoxContainer/reverseButton" to="backButtonContainer/VBoxContainer/reverseButton" method="_on_reverseButton_pressed"]
+[connection signal="pressed" from="menuButtonContainer/VBoxContainer/menuButton" to="menuButtonContainer/VBoxContainer/menuButton" method="_on_menuButton_pressed"]
