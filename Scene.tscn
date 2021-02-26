@@ -35,6 +35,7 @@ position = Vector2( 644.75, 300.038 )
 
 [node name="Node2D" parent="innerGame" instance=ExtResource( 1 )]
 position = Vector2( 775.563, 320.255 )
+shape = "hex"
 
 [node name="Node2D2" parent="innerGame" instance=ExtResource( 1 )]
 position = Vector2( 424.018, 91.8054 )
@@ -43,7 +44,6 @@ position = Vector2( 424.018, 91.8054 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
-pause_mode = 2
 mouse_filter = 2
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]

@@ -3,8 +3,11 @@ extends Node2D
 var selected = false
 var rest_point
 var rest_nodes = []
+export var shape = "circle"
 
 func _ready():
+	#print(str("res://colorPalette/box_", shape, ".png"))
+	$pobrane.texture = load(str("res://colorPalette/box_", shape, ".png"))
 	rest_nodes = get_tree().get_nodes_in_group("zone")
 	rest_point = rest_nodes[0]
 	for child in rest_nodes:
