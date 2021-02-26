@@ -40,7 +40,6 @@ position = Vector2( 424.018, 91.8054 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
-pause_mode = 2
 mouse_filter = 2
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]
@@ -68,6 +67,14 @@ margin_bottom = 300.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="UI/pauseContainer/CenterContainer/pauseMenu"]
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.392157 )
 
 [node name="Button" type="Button" parent="UI/pauseContainer/CenterContainer/pauseMenu"]
 anchor_left = 0.5
