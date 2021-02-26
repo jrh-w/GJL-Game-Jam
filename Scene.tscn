@@ -33,12 +33,16 @@ function = "stop"
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 644.75, 300.038 )
 
-[node name="Node2D" parent="innerGame" instance=ExtResource( 1 )]
+[node name="Node2D" parent="innerGame" groups=[
+"kotki",
+] instance=ExtResource( 1 )]
 position = Vector2( 775.563, 320.255 )
-shape = "hex"
+shape = "Hexagon"
 
-[node name="Node2D2" parent="innerGame" instance=ExtResource( 1 )]
-position = Vector2( 424.018, 91.8054 )
+[node name="Node2D2" parent="innerGame" groups=[
+"kotki",
+] instance=ExtResource( 1 )]
+position = Vector2( 358.864, 379.267 )
 
 [node name="UI" type="Node" parent="."]
 script = ExtResource( 4 )

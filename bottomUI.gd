@@ -27,7 +27,7 @@ var shapes = ["square", "circle", "Hexagon", "triangle"]
 
 var colorTable = [["light_blue", "green", "yellow", "orange"], ["orange", "blue", "green", "light_blue"], 
 			["yellow", "orange", "light_blue", "blue"], ["yellow", "blue", "light_blue", "orange"], ["orange", "blue", "light_blue", "yellow"]]
-var shapeTable = [0, 2, 3, 1]
+var shapeTable = [0, 1, 2, 3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/box_hex.png-95e64e03a1aaccb28f4fdefa993929dd.stex"
+path="res://.import/box_Hexagon.png-c2bdc984e5a3974f5f64d1f13bf6d181.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://colorPalette/box_hex.png"
-dest_files=[ "res://.import/box_hex.png-95e64e03a1aaccb28f4fdefa993929dd.stex" ]
+source_file="res://colorPalette/box_Hexagon.png"
+dest_files=[ "res://.import/box_Hexagon.png-c2bdc984e5a3974f5f64d1f13bf6d181.stex" ]
 
 [params]
 

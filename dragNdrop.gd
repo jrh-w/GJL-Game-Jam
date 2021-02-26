@@ -4,10 +4,21 @@ var selected = false
 var rest_point
 var rest_nodes = []
 export var shape = "circle"
+var shapeId = 0
 
 func _ready():
 	#print(str("res://colorPalette/box_", shape, ".png"))
 	$pobrane.texture = load(str("res://colorPalette/box_", shape, ".png"))
+	
+	if shape == "square":
+		shapeId = 0
+	elif shape == "circle":
+		shapeId = 1
+	elif shape == "Hexagon":
+		shapeId = 2
+	elif shape == "triangle":
+		shapeId = 3
+		
 	rest_nodes = get_tree().get_nodes_in_group("zone")
 	rest_point = rest_nodes[0]
 	for child in rest_nodes:
@@ -34,9 +45,17 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 						rest_point.deselect()
 						rest_point = tempRestPoint
 						rest_point.select()
+			
+			for cube in get_tree().get_nodes_in_group("kotki"):
+				cube.updateColor()
 		
 func _physics_process(delta):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 	else:
 		global_position = lerp(global_position, rest_point.global_position, 10 * delta)
+
+func updateColor():
+	var TextRect = get_tree().get_root().get_node("Level/UI/TextureRect")
+	var currColorTable = TextRect.colorTable[TextRect.offset / 93]
+	$pobrane.modulate = TextRect.colorDict[currColorTable[TextRect.shapeTable[shapeId]]]
