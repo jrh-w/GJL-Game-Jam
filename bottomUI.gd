@@ -54,7 +54,7 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 		container.add_child(box)
 	box = new_box.instance()
 	box.isEndBlock = true
-	# Add "End" PNG <-----------------------------------
+	box.texture = load("res://colorPalette/UI_round_background_end.png")
 	container.add_child(box)
 		
 
