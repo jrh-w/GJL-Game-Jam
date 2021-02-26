@@ -23,6 +23,14 @@ func new_log(name, a, b):
 	if !roundEnd: 
 		get_node("UI/TextureRect").offset += 93
 		history.push_front(n)
+		
+func restart_round():
+	while history.size() > 0:
+		var route = history.pop_front()
+		get_node("innerGame/" + route.card).rest_point = route.from
+		#print(get_node("innerGame/" + route.card).set_position(route.from))
+		get_node("UI/TextureRect").offset -= 93
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
