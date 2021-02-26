@@ -20,12 +20,15 @@ position = Vector2( 426.396, 93.8528 )
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 565.264, 517.378 )
+function = "back"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 821.185, 308.6 )
+function = "skip"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 873.077, 492.69 )
+function = "stop"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 285.609, 471.284 )
@@ -40,6 +43,7 @@ position = Vector2( 424.018, 91.8054 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
+pause_mode = 2
 mouse_filter = 2
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]
@@ -67,14 +71,6 @@ margin_bottom = 300.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ColorRect" type="ColorRect" parent="UI/pauseContainer/CenterContainer/pauseMenu"]
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 0.392157 )
 
 [node name="Button" type="Button" parent="UI/pauseContainer/CenterContainer/pauseMenu"]
 anchor_left = 0.5

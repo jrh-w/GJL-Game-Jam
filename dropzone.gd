@@ -2,20 +2,9 @@ extends Position2D
 
 var busy = false
 var color = '#8fc6e0'
-var function = 'default'
+export var function = 'default'
 
 func _enter_tree():
-	if function == "back":
-		print("go back")
-	elif function == "skip":
-		print("skip")
-	elif function == "stop":
-		print("stop")
-
-func select():
-	$box2.modulate = color
-	busy = true
-	
 	if function == "back":
 		print("go back")
 		$box.texture = load("res://colorPalette/box_background_back.png")
@@ -24,6 +13,17 @@ func select():
 		print("skip")
 	elif function == "stop":
 		$box.texture = load("res://colorPalette/box_background_stop.png")
+		print("stop")
+
+func select():
+	$box2.modulate = color
+	busy = true
+	
+	if function == "back":
+		print("go back")
+	elif function == "skip":
+		print("skip")
+	elif function == "stop":
 		print("stop")
 	
 	
