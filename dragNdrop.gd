@@ -9,7 +9,6 @@ var shapeId = 0
 func _ready():
 	#print(str("res://colorPalette/box_", shape, ".png"))
 	$pobrane.texture = load(str("res://colorPalette/box_", shape, ".png"))
-	
 	if shape == "square":
 		shapeId = 0
 	elif shape == "circle":
@@ -26,7 +25,8 @@ func _ready():
 				if distance < global_position.distance_to(rest_point.global_position):
 					rest_point = child
 	rest_point.select()
-
+	updateColor()
+	
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
 		selected = true

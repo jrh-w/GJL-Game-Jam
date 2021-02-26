@@ -16,9 +16,8 @@ func select():
 	
 	if function == "back":
 		print("go back")
-		get_tree().get_root().get_node("Level").restart_round()
+		get_tree().get_root().get_node("Level").backTwoRounds()
 	elif function == "skip":
-		get_tree().get_root().get_node("Level").backOneRound()
 		print("skip")
 	elif function == "stop":
 		get_tree().get_root().get_node("Level").paused = true

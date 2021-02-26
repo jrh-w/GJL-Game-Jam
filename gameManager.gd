@@ -45,6 +45,15 @@ func backTwoRounds():
 			get_node("innerGame/" + route.card).rest_point = route.from
 			if !paused:
 				get_node("UI/TextureRect").offset -= 93
+
+func reverse_round():
+	if !roundEnd && history.size() > 0:
+		var route = history.pop_front()
+		get_node("innerGame/" + route.card).rest_point.deselect()
+		get_node("innerGame/" + route.card).rest_point = route.from
+		get_node("UI/TextureRect").offset -= 93
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
