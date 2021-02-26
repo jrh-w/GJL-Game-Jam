@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 62.0
+margin_top = 530.0
+margin_right = 962.0
+margin_bottom = 580.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 900.0
+margin_bottom = 50.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_left = 62.0
+margin_top = 515.0
+margin_right = 132.0
+margin_bottom = 585.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" parent="MarginContainer2" instance=ExtResource( 1 )]

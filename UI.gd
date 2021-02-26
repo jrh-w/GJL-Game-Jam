@@ -5,7 +5,7 @@ extends Control
 # var a = 2
 # var b = "text"
 
-onready var container = get_node("HBoxContainer")
+onready var container = get_node("MarginContainer/HBoxContainer")
 onready var new_box = load("res://roundBlock.tscn")
 onready var new_shape = load("res://shapeShell.tscn")
 
