@@ -13,28 +13,28 @@ script = ExtResource( 6 )
 [node name="innerGame" type="Node2D" parent="."]
 
 [node name="dropzone" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 177.495, 243.759 )
+position = Vector2( 744.747, 298.463 )
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 426.396, 93.8528 )
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 565.264, 517.378 )
+position = Vector2( 539.101, 298.564 )
 function = "back"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 821.185, 308.6 )
+position = Vector2( 536.964, 93.3534 )
 function = "skip"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 873.077, 492.69 )
+position = Vector2( 538.91, 196.577 )
 function = "stop"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 285.609, 471.284 )
+position = Vector2( 644.75, 300.038 )
 
 [node name="Node2D" parent="innerGame" instance=ExtResource( 1 )]
-position = Vector2( 285.609, 259.605 )
+position = Vector2( 775.563, 320.255 )
 
 [node name="Node2D2" parent="innerGame" instance=ExtResource( 1 )]
 position = Vector2( 424.018, 91.8054 )
@@ -64,6 +64,7 @@ __meta__ = {
 
 [node name="pauseMenu" type="Popup" parent="UI/pauseContainer/CenterContainer"]
 pause_mode = 2
+visible = true
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
