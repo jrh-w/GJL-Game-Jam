@@ -64,5 +64,7 @@ func _process(delta):
 	var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
 	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - (6 * (get_viewport().size.x / 1024)) + offset
 	vect.y = get_node("arrowContainer").rect_position.y
+	if get_viewport().size.x < 1024:
+		print(vect)
 	get_node("arrowContainer").set_position(vect)
 	pass
