@@ -9,14 +9,17 @@ var shapeId = 0
 func _ready():
 	#print(str("res://colorPalette/box_", shape, ".png"))
 	$pobrane.texture = load(str("res://colorPalette/box_", shape, ".png"))
-	if shape == "square":
-		shapeId = 0
-	elif shape == "circle":
-		shapeId = 1
-	elif shape == "Hexagon":
-		shapeId = 2
-	elif shape == "triangle":
-		shapeId = 3
+	
+	shapeId = get_tree().get_root().get_node("Level/UI/TextureRect").shapes.find(shape, 0)
+	
+	#if shape == "square":
+	#	shapeId = 0
+	#elif shape == "circle":
+	#	shapeId = 1
+	#elif shape == "Hexagon":
+	#	shapeId = 2
+	#elif shape == "triangle":
+	#	shapeId = 3
 		
 	rest_nodes = get_tree().get_nodes_in_group("zone")
 	rest_point = rest_nodes[0]
@@ -58,4 +61,5 @@ func _physics_process(delta):
 func updateColor():
 	var TextRect = get_tree().get_root().get_node("Level/UI/TextureRect")
 	var currColorTable = TextRect.colorTable[TextRect.offset / 93]
-	$pobrane.modulate = TextRect.colorDict[currColorTable[TextRect.shapeTable[shapeId]]]
+	var whereId = TextRect.shapeTable.find(shapeId, 0)
+	$pobrane.modulate = TextRect.colorDict[currColorTable[whereId]]
