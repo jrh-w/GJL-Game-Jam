@@ -25,9 +25,9 @@ var colorDict = {
 }
 var shapes = ["square", "circle", "Hexagon", "triangle"]
 
-var colorTable = [["light_blue", "green", "yellow"], ["orange", "blue", "green"], 
-			["yellow", "orange", "light_blue"]]
-var shapeTable = [0, 2, 3]
+var colorTable = [["light_blue", "green", "yellow", "orange"], ["orange", "blue", "green", "light_blue"], 
+			["yellow", "orange", "light_blue", "blue"]]
+var shapeTable = [0, 2, 3, 1]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,7 +64,6 @@ func _process(delta):
 	var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
 	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) - (6 * (get_viewport().size.x / 1024)) + offset
 	vect.y = get_node("arrowContainer").rect_position.y
-	if get_viewport().size.x < 1024:
-		print(vect)
+	#print(6 * (get_viewport().size.x / 1024))
 	get_node("arrowContainer").set_position(vect)
 	pass

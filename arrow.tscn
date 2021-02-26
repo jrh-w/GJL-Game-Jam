@@ -6,6 +6,9 @@
 [node name="TextureRect" type="TextureRect"]
 margin_right = 90.0
 margin_bottom = 90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 35.0
@@ -17,9 +20,9 @@ stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 margin_left = 35.0
-margin_top = 75.0
+margin_top = 60.0
 margin_right = 125.0
-margin_bottom = 75.0
+margin_bottom = 60.0
 rect_scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 expand = true
