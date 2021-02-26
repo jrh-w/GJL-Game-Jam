@@ -48,7 +48,6 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 						rest_point.deselect()
 						rest_point = tempRestPoint
 						rest_point.select()
-			
 			for cube in get_tree().get_nodes_in_group("kotki"):
 				cube.updateColor()
 		
@@ -59,7 +58,9 @@ func _physics_process(delta):
 		global_position = lerp(global_position, rest_point.global_position, 10 * delta)
 
 func updateColor():
-	var TextRect = get_tree().get_root().get_node("Level/UI/TextureRect")
-	var currColorTable = TextRect.colorTable[TextRect.offset / 93]
-	var whereId = TextRect.shapeTable.find(shapeId, 0)
-	$pobrane.modulate = TextRect.colorDict[currColorTable[whereId]]
+	var level = get_tree().get_root().get_node("Level")
+	if level.currentRound < level.rounds:
+		var TextRect = get_tree().get_root().get_node("Level/UI/TextureRect")
+		var currColorTable = TextRect.colorTable[TextRect.offset / 93]
+		var whereId = TextRect.shapeTable.find(shapeId, 0)
+		$pobrane.modulate = TextRect.colorDict[currColorTable[whereId]]
