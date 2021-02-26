@@ -35,3 +35,4 @@ position = Vector2( 424.018, 91.8054 )
 [node name="UI" type="Node" parent="."]
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
+mouse_filter = 2
