@@ -1,13 +1,11 @@
 extends Position2D
 
+var busy = false
+var color = '#8fc6e0'
 
-func _draw():
-	draw_circle(Vector2.ZERO, 75, Color.aquamarine)
-	
 func select():
-	for child in get_tree().get_nodes_in_group("zone"):
-		child.deselect()
-	modulate = Color.webmaroon
+	$box2.modulate = color
+	busy = true
 	
 func deselect():
-	modulate = Color.white
+	busy = false

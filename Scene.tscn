@@ -15,19 +15,19 @@ position = Vector2( 177.495, 243.759 )
 position = Vector2( 426.396, 93.8528 )
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 565.264, 517.378 )
+position = Vector2( 570.021, 284.293 )
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 821.185, 308.6 )
+position = Vector2( 740.319, 121.894 )
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 873.077, 492.69 )
+position = Vector2( 894.483, 320.255 )
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 285.609, 471.284 )
+position = Vector2( 391.448, 352.363 )
 
 [node name="Node2D" parent="innerGame" instance=ExtResource( 1 )]
-position = Vector2( 285.609, 259.605 )
+position = Vector2( 177.391, 246.524 )
 
 [node name="Node2D2" parent="innerGame" instance=ExtResource( 1 )]
 position = Vector2( 424.018, 91.8054 )
@@ -35,4 +35,5 @@ position = Vector2( 424.018, 91.8054 )
 [node name="UI" type="Node" parent="."]
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
+visible = false
 mouse_filter = 2
