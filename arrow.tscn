@@ -5,6 +5,7 @@
 [node name="TextureRect" type="TextureRect"]
 margin_right = 95.0
 margin_bottom = 95.0
+rect_min_size = Vector2( 40, 40 )
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
