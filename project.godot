@@ -24,6 +24,10 @@ config/name="GJL Game Jam"
 run/main_scene="res://Scene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+LevelMenu="*res://levelMenu.gd"
+
 [display]
 
 window/dpi/allow_hidpi=true
