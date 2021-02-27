@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://RocknRollOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://exitButton.gd" type="Script" id=3]
 [ext_resource path="res://menu.gd" type="Script" id=4]
 [ext_resource path="res://settingsMenu.gd" type="Script" id=5]
+[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=6]
+[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -33,6 +35,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+use_filter = true
 font_data = ExtResource( 1 )
 
 [node name="Menu" type="MarginContainer"]
@@ -244,12 +250,70 @@ __meta__ = {
 }
 
 [node name="levelMenu" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 512.0
-margin_top = 300.0
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = 456.0
+margin_top = 199.0
+margin_right = 568.0
+margin_bottom = 401.0
+custom_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/levelMenu"]
+margin_right = 112.0
+margin_bottom = 134.0
+custom_constants/separation = 20
+
+[node name="levelButton" type="VBoxContainer" parent="CenterContainer/levelMenu/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 134.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Level1" type="TextureButton" parent="CenterContainer/levelMenu/HBoxContainer/levelButton"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/levelMenu/HBoxContainer/levelButton"]
+margin_top = 110.0
+margin_right = 100.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 1"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/levelMenu"]
+margin_top = 154.0
+margin_right = 112.0
+margin_bottom = 202.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "< Back"
+align = 1
+valign = 1
+
+[node name="backButton" type="TextureButton" parent="CenterContainer/levelMenu/Label2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -20.0
+margin_right = 60.0
+margin_bottom = 20.0
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_down" from="CenterContainer/mainMenu/CenterContainer2/Label/Button" to="." method="_on_Button_button_down"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer3/Label/settingsButton" to="." method="_on_settingsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" to="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" method="_on_exitButton_pressed"]
 [connection signal="pressed" from="CenterContainer/settingsMenu/fullscreen/isFullscreen" to="CenterContainer/settingsMenu" method="_on_isFullscreen_pressed"]
 [connection signal="pressed" from="CenterContainer/settingsMenu/Label/backButton" to="." method="_on_backButton_pressed"]
+[connection signal="pressed" from="CenterContainer/levelMenu/Label2/backButton" to="." method="_on_backButton_pressed"]
