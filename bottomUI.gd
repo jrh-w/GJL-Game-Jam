@@ -26,7 +26,7 @@ var colorDict = {
 var shapes = ["square", "circle", "Hexagon", "triangle"]
 
 var colorTable = [["light_blue", "green", "yellow", "orange"], ["orange", "blue", "green", "light_blue"], 
-			["yellow", "orange", "light_blue", "blue"], ["yellow", "green", "orange", "light_blue"], ["orange", "blue", "light_blue", "yellow"]]
+			["yellow", "orange", "light_blue", "blue"], ["orange", "blue", "light_blue", "yellow"], ["yellow", "green", "orange", "light_blue"]]
 var shapeTable = [3, 1, 2, 0]
 
 # Called when the node enters the scene tree for the first time.
@@ -56,8 +56,6 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 	box.isEndBlock = true
 	box.texture = load("res://colorPalette/UI_round_background_end.png")
 	container.add_child(box)
-		
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

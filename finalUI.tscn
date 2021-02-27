@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bottomUI.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://menuGameButton.gd" type="Script" id=8]
 [ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=9]
 [ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=10]
+[ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.3853, 45.2808 )
@@ -62,9 +63,9 @@ margin_left = 20.0
 margin_right = 974.0
 rect_min_size = Vector2( 90, 90 )
 
-[node name="Area2D" type="Area2D" parent="arrowContainer/Arrow"]
+[node name="kotki<3" type="Area2D" parent="arrowContainer/Arrow"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="arrowContainer/Arrow/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrowContainer/Arrow/kotki<3"]
 position = Vector2( 40.0594, 44.1785 )
 shape = SubResource( 1 )
 
@@ -92,6 +93,7 @@ margin_right = 70.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 11 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 4 )

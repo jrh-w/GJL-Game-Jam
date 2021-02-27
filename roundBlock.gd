@@ -1,26 +1,11 @@
 extends TextureRect
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var isEndBlock = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func onCollisionEnter(area):
-	if isEndBlock: 
-		get_tree().get_root().get_node("Level").roundEnd = true
-		get_tree().get_root().get_node("Level").isWon()
+func _on_Area2D_area_shape_entered(area_id, area, area_shape, self_shape):
+	if isEndBlock && area.name == "kotki<3": 
+		var level = get_tree().get_root().get_node("Level")
+		level.roundEnd = true
+		level.get_node("UI/TextureRect/backButtonContainer/VBoxContainer/reverseButton").disabled = true
+		level.isWon()
 		print("END")
-	#print("collision")
-	pass # Replace with function body.

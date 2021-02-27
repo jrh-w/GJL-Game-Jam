@@ -8,6 +8,9 @@ var shapeId = 0
 
 var onMatchingPos = false
 
+onready var level = get_tree().get_root().get_node("Level")
+onready var textRect = get_tree().get_root().get_node("Level/UI/TextureRect")
+
 func _ready():
 	#print(str("res://colorPalette/box_", shape, ".png"))
 	$pobrane.texture = load(str("res://colorPalette/box_", shape, ".png"))
@@ -34,7 +37,8 @@ func _ready():
 	
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
-		selected = true
+		if !level.roundEnd:
+			selected = true
 	if Input.is_action_just_released("click"): 
 			selected = false
 			var shortest_dist = 75
@@ -46,12 +50,20 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					shortest_dist = distance
 			if tempRestPoint != null:
 				if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
-					get_tree().get_root().get_node("Level").new_log(get_node(".").name, rest_point, tempRestPoint)
 					rest_point.deselect()
+					level.new_log(get_node(".").name, rest_point, tempRestPoint)
 					rest_point = tempRestPoint
 					rest_point.select()
 			for cube in get_tree().get_nodes_in_group("kotki"):
 				cube.updateColor()
+			if level.currentRound < level.rounds:
+				if textRect.colorTable[textRect.offset / 93][textRect.shapeTable.find(shapeId, 0)] == rest_point.color:
+					onMatchingPos = true
+					rest_point.matched()
+				else:
+					onMatchingPos = false
+				
+				level.isWon()
 		
 func _physics_process(delta):
 	if selected:
@@ -60,17 +72,14 @@ func _physics_process(delta):
 		global_position = lerp(global_position, rest_point.global_position, 10 * delta)
 
 func updateColor():
-	var level = get_tree().get_root().get_node("Level")
+	#var level = get_tree().get_root().get_node("Level")
 	if level.currentRound < level.rounds:
-		var TextRect = get_tree().get_root().get_node("Level/UI/TextureRect")
-		var currColorTable = TextRect.colorTable[TextRect.offset / 93]
-		var whereId = TextRect.shapeTable.find(shapeId, 0)
-		$pobrane.modulate = TextRect.colorDict[currColorTable[whereId]]
+		var currColorTable = textRect.colorTable[textRect.offset / 93]
+		var whereId = textRect.shapeTable.find(shapeId, 0)
+		$pobrane.modulate = textRect.colorDict[currColorTable[whereId]]
 		
 		if currColorTable[whereId] == rest_point.color:
 			onMatchingPos = true
 			rest_point.matched()
 		else:
 			onMatchingPos = false
-	
-	level.isWon()

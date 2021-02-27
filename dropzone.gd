@@ -1,8 +1,8 @@
 extends Position2D
 
 var busy = false
-export(String, "default", "back", "skip", "stop", "padlock") var function
-export(String, "blue", "orange", "light_blue", "green", "yellow") var color
+export(String, "none", "default", "back", "skip", "stop", "padlock") var function
+export(String, "none", "blue", "orange", "light_blue", "green", "yellow") var color
 export(int) var connectedPadlockId
 
 func _enter_tree():
@@ -39,11 +39,16 @@ func select():
 		print("enter stop")
 	
 	
-func deselect():
-	busy = false
-	if function == "stop":
-		get_tree().get_root().get_node("Level").paused = false
-		print("leaving stop")
+func deselect(isReversing = false):
+	if function == "padlock" && !isReversing:
+		$box/Padlock.visible = true
+		$box2.visible = false
+		busy = true
+	else:
+		busy = false
+		if function == "stop":
+			get_tree().get_root().get_node("Level").paused = false
+			print("leaving stop")
 
 func matched():
 	if connectedPadlockId:
