@@ -76,6 +76,9 @@ func reverse_round():
 	if !roundEnd && history.size() > 0:
 		var route = history.pop_front()
 		#if !route.from.busy:
+		if route.from.function == "padlock":
+			route.from.open()
+			
 		get_node("innerGame/" + route.card).rest_point.deselect(true)
 		get_node("innerGame/" + route.card).rest_point = route.from
 		get_node("innerGame/" + route.card).rest_point.select()

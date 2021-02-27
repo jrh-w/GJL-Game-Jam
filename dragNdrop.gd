@@ -63,6 +63,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 						
 			for cube in get_tree().get_nodes_in_group("kotki"):
 				cube.updateColor()
+				
 			if level.currentRound < level.rounds:
 				if textRect.colorTable[textRect.offset / 93][textRect.shapeTable.find(shapeId, 0)] == rest_point.color:
 					onMatchingPos = true
