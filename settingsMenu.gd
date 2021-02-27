@@ -8,12 +8,23 @@ extends VBoxContainer
 onready var optionMenu = get_node("HBoxContainer/optionMenu")
 onready var fullscreenOption = get_node("fullscreen/isFullscreen")
 
+const CONFIG_PATH = "res://config.cfg" # change to 'user://...' after finishing up
+var configFile = ConfigFile.new()
+
+var settings = {
+	"screen": {
+		"resolution": 0,
+		"fullscreen": false
+	}
+}
+
 var selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_resolutions()
 	optionMenu.connect("item_selected", self, "change_resolution")
+	load_settings()
 
 func add_resolutions():
 	optionMenu.add_item("1024x600", 0)
@@ -47,3 +58,17 @@ func _on_isFullscreen_pressed():
 	else:
 		OS.set_window_fullscreen(false)
 		optionMenu.disabled = false
+
+func load_settings():
+	var file = configFile.load(CONFIG_PATH)
+	if file != OK:
+		print("Error while loading user settings")
+		return []
+	
+	# Get values from config file - section by section, key by key
+	var values = []
+	for section in settings.keys():
+		for key in settings[section].keys():
+			var value = settings[section][key]
+			values.append(configFile.get_value(section, key, value))
+	return values
