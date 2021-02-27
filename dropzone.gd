@@ -3,7 +3,7 @@ extends Position2D
 var busy = false
 export(String, "default", "back", "skip", "stop", "padlock") var function
 export(String, "blue", "orange", "light_blue", "green", "yellow") var color
-export(String) var connectedPadlock
+export(int) var connectedPadlockId
 
 func _enter_tree():
 	#print(color)
@@ -46,8 +46,8 @@ func deselect():
 		print("leaving stop")
 
 func matched():
-	if connectedPadlock:
-		get_parent().get_node(connectedPadlock).open()
+	if connectedPadlockId:
+		get_parent().get_node(str("dropzone",connectedPadlockId)).open()
 	else:
 		print("no padlock assigned")
 

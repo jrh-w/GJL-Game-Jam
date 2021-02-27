@@ -41,7 +41,7 @@ color = "yellow"
 position = Vector2( 640, 300 )
 function = "default"
 color = "orange"
-connectedPadlock = "dropzone7"
+connectedPadlockId = 7
 
 [node name="dropzone7" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 640, 200 )
