@@ -574,9 +574,19 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_down" from="CenterContainer/mainMenu/CenterContainer2/Label/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_down" from="CenterContainer/mainMenu/CenterContainer2/Label/Button" to="." method="_on_playButton_down"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer3/Label/settingsButton" to="." method="_on_settingsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" to="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" method="_on_exitButton_pressed"]
 [connection signal="pressed" from="CenterContainer/settingsMenu/fullscreen/isFullscreen" to="CenterContainer/settingsMenu" method="_on_isFullscreen_pressed"]
 [connection signal="pressed" from="CenterContainer/settingsMenu/Label/backButton" to="." method="_on_backButton_pressed"]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer/levelButton/Level1" to="." method="_playLevel" binds= [ "Level1" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer/levelButton2/Level2" to="." method="_playLevel" binds= [ "Level2" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer/levelButton3/Level3" to="." method="_playLevel" binds= [ "Level3" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer/levelButton4/Level4" to="." method="_playLevel" binds= [ "Level4" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer/levelButton5/Level5" to="." method="_playLevel" binds= [ "Level5" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer2/levelButton6/Level6" to="." method="_playLevel" binds= [ "Level6" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer2/levelButton7/Level7" to="." method="_playLevel" binds= [ "Level7" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer2/levelButton8/Level8" to="." method="_playLevel" binds= [ "Level8" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer2/levelButton9/Level9" to="." method="_playLevel" binds= [ "Level9" ]]
+[connection signal="pressed" from="CenterContainer/levelMenu/HBoxContainer2/levelButton10/Level10" to="." method="_playLevel" binds= [ "Level10" ]]
 [connection signal="pressed" from="CenterContainer/levelMenu/Label2/backButton" to="." method="_on_backButton_pressed"]

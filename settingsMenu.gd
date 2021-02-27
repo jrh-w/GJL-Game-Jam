@@ -8,7 +8,7 @@ extends VBoxContainer
 onready var optionMenu = get_node("HBoxContainer/optionMenu")
 onready var fullscreenOption = get_node("fullscreen/isFullscreen")
 
-const CONFIG_PATH = "res://config.cfg" # change to 'user://...' after finishing up
+const CONFIG_PATH = "user://config.cfg" # change to 'user://...' after finishing up
 var configFile = ConfigFile.new()
 
 var settings = {

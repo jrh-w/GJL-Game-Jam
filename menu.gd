@@ -12,13 +12,14 @@ func _on_settingsButton_pressed():
 	mainMenu.hide()
 	settingsMenu.show()
 
-
-func _on_Button_button_down():
-	mainMenu.hide()
-	levelMenu.show()
-
-
 func _on_backButton_pressed():
 	settingsMenu.hide()
 	levelMenu.hide()
 	mainMenu.show()
+
+func _on_playButton_down():
+	mainMenu.hide()
+	levelMenu.show()
+
+func _playLevel(levelName):
+	get_tree().change_scene("res://" + levelName + ".tscn")
