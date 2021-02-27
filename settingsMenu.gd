@@ -18,13 +18,12 @@ var settings = {
 	}
 }
 
-var selected
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_resolutions()
+	load_settings(CONFIG_PATH)
+	apply_settings()
 	optionMenu.connect("item_selected", self, "change_resolution")
-	load_settings()
 
 func add_resolutions():
 	optionMenu.add_item("1024x600", 0)
@@ -36,7 +35,8 @@ func add_resolutions():
 	pass
 
 func change_resolution(id):
-	selected = id
+	settings.screen.resolution = id
+	OS.set_window_position(Vector2(0, 0))
 	if id == 0:
 		OS.set_window_size(Vector2(1024, 600))
 	elif id == 1:
@@ -49,26 +49,38 @@ func change_resolution(id):
 		OS.set_window_size(Vector2(1600, 900))
 	elif id == 5:
 		OS.set_window_size(Vector2(1920, 1080))
-	OS.set_window_position(Vector2(0, 0))
+	save_settings(CONFIG_PATH)
 
 func _on_isFullscreen_pressed():
+	settings.screen.fullscreen = fullscreenOption.pressed
 	if fullscreenOption.pressed:
 		OS.set_window_fullscreen(true)
 		optionMenu.disabled = true
 	else:
 		OS.set_window_fullscreen(false)
 		optionMenu.disabled = false
+	save_settings(CONFIG_PATH)
 
-func load_settings():
-	var file = configFile.load(CONFIG_PATH)
+func save_settings(path):
+	for section in settings.keys():
+		for key in settings[section]:
+			configFile.set_value(section, key, settings[section][key])
+	configFile.save(path)
+
+func load_settings(path):
+	var file = configFile.load(path)
 	if file != OK:
 		print("Error while loading user settings")
 		return []
 	
 	# Get values from config file - section by section, key by key
-	var values = []
 	for section in settings.keys():
 		for key in settings[section].keys():
-			var value = settings[section][key]
-			values.append(configFile.get_value(section, key, value))
-	return values
+			settings[section][key] = configFile.get_value(section, key, null)
+
+func apply_settings():
+	optionMenu.select(settings.screen.resolution)
+	change_resolution(settings.screen.resolution)
+	fullscreenOption.pressed = settings.screen.fullscreen
+	_on_isFullscreen_pressed()
+	pass
