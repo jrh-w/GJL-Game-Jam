@@ -14,24 +14,39 @@ script = ExtResource( 6 )
 
 [node name="dropzone" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 740, 300 )
+function = "default"
+color = "blue"
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 440, 100 )
+function = "default"
+color = "green"
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 540, 300 )
 function = "back"
+color = "green"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 540, 100 )
 function = "skip"
+color = "blue"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 540, 200 )
 function = "stop"
+color = "yellow"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 640, 300 )
+function = "default"
+color = "orange"
+connectedPadlock = "dropzone7"
+
+[node name="dropzone7" parent="innerGame" instance=ExtResource( 2 )]
+position = Vector2( 640, 200 )
+function = "padlock"
+color = "orange"
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
@@ -85,39 +100,4 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="loseMenu" type="CenterContainer" parent="UI/pauseContainer"]
-visible = false
-margin_right = 1024.0
-margin_bottom = 600.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/pauseContainer/loseMenu"]
-margin_left = 486.0
-margin_top = 293.0
-margin_right = 537.0
-margin_bottom = 307.0
-
-[node name="Label" type="Label" parent="UI/pauseContainer/loseMenu/VBoxContainer"]
-margin_top = -7.0
-margin_right = 51.0
-margin_bottom = 7.0
-text = "You lost"
-align = 1
-valign = 1
-
-[node name="winMenu" type="CenterContainer" parent="UI/pauseContainer"]
-visible = false
-margin_right = 1024.0
-margin_bottom = 600.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/pauseContainer/winMenu"]
-margin_left = 512.0
-margin_top = 300.0
-margin_right = 512.0
-margin_bottom = 300.0
-
-[node name="Label" type="Label" parent="UI/pauseContainer/winMenu/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "You won"
 [connection signal="pressed" from="UI/pauseContainer/pauseMenu/Button" to="UI" method="_on_Button_pressed"]

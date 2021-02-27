@@ -21,5 +21,5 @@ func onCollisionEnter(area):
 	if isEndBlock: 
 		get_tree().get_root().get_node("Level").roundEnd = true
 		print("END")
-	print("collision")
+	#print("collision")
 	pass # Replace with function body.

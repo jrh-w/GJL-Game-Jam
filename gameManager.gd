@@ -42,8 +42,12 @@ func restart_round():
 			if !route.doneWhilePaused:
 				currentRound -= 1
 				get_node("UI/TextureRect").offset -= 93
+				
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
+			
+		for drop in get_tree().get_nodes_in_group("zone"):
+			drop.init()
 				
 func backTwoRounds():
 	if !roundEnd && history.size() > 1:
@@ -54,6 +58,7 @@ func backTwoRounds():
 			if !paused:
 				currentRound -= 1
 				get_node("UI/TextureRect").offset -= 93
+			
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
 

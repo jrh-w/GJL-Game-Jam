@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://dropzone.gd" type="Script" id=1]
-[ext_resource path="res://colorPalette/box_background.png" type="Texture" id=2]
+[ext_resource path="res://colorPalette/box_background_default.png" type="Texture" id=2]
 [ext_resource path="res://colorPalette/box_border.png" type="Texture" id=3]
+[ext_resource path="res://colorPalette/Padlock_0.png" type="Texture" id=4]
+[ext_resource path="res://colorPalette/Padlock_1.png" type="Texture" id=5]
 
 [node name="dropzone" type="Position2D" groups=[
 "zone",
@@ -10,9 +12,20 @@
 script = ExtResource( 1 )
 
 [node name="box" type="Sprite" parent="."]
-modulate = Color( 0.976471, 0.941176, 0.882353, 1 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
+
+[node name="Padlock" type="Node2D" parent="box"]
+visible = false
+
+[node name="upper" type="Sprite" parent="box/Padlock"]
+position = Vector2( 0, -160 )
+texture = ExtResource( 5 )
+
+[node name="base" type="Sprite" parent="box/Padlock"]
+modulate = Color( 0.560784, 0.776471, 0.878431, 1 )
+position = Vector2( 0, 80 )
+texture = ExtResource( 4 )
 
 [node name="box2" type="Sprite" parent="."]
 modulate = Color( 0.560784, 0.776471, 0.878431, 1 )

@@ -43,11 +43,11 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					tempRestPoint = child
 					shortest_dist = distance
 			if tempRestPoint != null:
-					if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
-						get_tree().get_root().get_node("Level").new_log(get_node(".").name, rest_point, tempRestPoint)
-						rest_point.deselect()
-						rest_point = tempRestPoint
-						rest_point.select()
+				if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
+					get_tree().get_root().get_node("Level").new_log(get_node(".").name, rest_point, tempRestPoint)
+					rest_point.deselect()
+					rest_point = tempRestPoint
+					rest_point.select()
 			for cube in get_tree().get_nodes_in_group("kotki"):
 				cube.updateColor()
 		
@@ -64,3 +64,6 @@ func updateColor():
 		var currColorTable = TextRect.colorTable[TextRect.offset / 93]
 		var whereId = TextRect.shapeTable.find(shapeId, 0)
 		$pobrane.modulate = TextRect.colorDict[currColorTable[whereId]]
+		
+		if currColorTable[whereId] == rest_point.color:
+			rest_point.matched()
