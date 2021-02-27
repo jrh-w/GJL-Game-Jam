@@ -43,7 +43,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					tempRestPoint = child
 					shortest_dist = distance
 			if tempRestPoint != null:
-					if !tempRestPoint.busy:
+					if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 100:
 						get_tree().get_root().get_node("Level").new_log(get_node(".").name, rest_point, tempRestPoint)
 						rest_point.deselect()
 						rest_point = tempRestPoint

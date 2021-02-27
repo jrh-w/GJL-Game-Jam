@@ -15,17 +15,17 @@ func select():
 	busy = true
 	
 	if function == "back":
-		print("go back")
+		print("enter back")
 		get_tree().get_root().get_node("Level").backTwoRounds()
 	elif function == "skip":
-		print("skip")
+		print("enter skip")
 	elif function == "stop":
 		get_tree().get_root().get_node("Level").paused = true
-		print("stop")
+		print("enter stop")
 	
 	
 func deselect():
 	busy = false
 	if function == "stop":
 		get_tree().get_root().get_node("Level").paused = false
-		print("stop")
+		print("leaving stop")

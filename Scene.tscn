@@ -13,13 +13,13 @@ script = ExtResource( 6 )
 [node name="innerGame" type="Node2D" parent="."]
 
 [node name="dropzone" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 744.747, 298.463 )
+position = Vector2( 734.152, 287.868 )
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 426.396, 93.8528 )
+position = Vector2( 436.991, 92.7933 )
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 539.101, 298.564 )
+position = Vector2( 540.16, 286.91 )
 function = "back"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
@@ -27,11 +27,11 @@ position = Vector2( 536.964, 93.3534 )
 function = "skip"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 538.91, 196.577 )
+position = Vector2( 538.91, 191.28 )
 function = "stop"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 644.75, 300.038 )
+position = Vector2( 637.334, 287.324 )
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
@@ -42,15 +42,17 @@ shape = "Hexagon"
 [node name="Node2D2" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 1 )]
-position = Vector2( 358.864, 379.267 )
+position = Vector2( 392.767, 100.628 )
 
 [node name="UI" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
+visible = false
 mouse_filter = 2
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
