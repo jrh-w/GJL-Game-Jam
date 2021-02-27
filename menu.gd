@@ -20,4 +20,5 @@ func _on_Button_button_down():
 
 func _on_backButton_pressed():
 	settingsMenu.hide()
+	levelMenu.hide()
 	mainMenu.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://dragNdrop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dropzone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://UI.gd" type="Script" id=4]
 [ext_resource path="res://resumeButton.gd" type="Script" id=5]
 [ext_resource path="res://gameManager.gd" type="Script" id=6]
+[ext_resource path="res://colorPalette/UI_Button_restart.png" type="Texture" id=7]
+[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=8]
+[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=9]
+[ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=10]
+[ext_resource path="res://colorPalette/box_background_skip.png" type="Texture" id=11]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 6 )
@@ -14,50 +19,35 @@ script = ExtResource( 6 )
 
 [node name="dropzone" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 740, 300 )
-function = "default"
-color = "blue"
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 440, 100 )
-function = "default"
-color = "green"
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 540, 300 )
 function = "back"
-color = "green"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 540, 100 )
 function = "skip"
-color = "blue"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 540, 200 )
 function = "stop"
-color = "yellow"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
 position = Vector2( 640, 300 )
-function = "default"
-color = "orange"
-connectedPadlock = "dropzone7"
-
-[node name="dropzone7" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 640, 200 )
-function = "padlock"
-color = "orange"
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 1 )]
-position = Vector2( 791.119, 335.104 )
+position = Vector2( 775.563, 320.255 )
 shape = "Hexagon"
 
 [node name="Node2D2" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 1 )]
-position = Vector2( 399.094, 172.651 )
+position = Vector2( 358.864, 379.267 )
 
 [node name="UI" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -81,6 +71,7 @@ margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.392157 )
 
 [node name="pauseMenu" type="CenterContainer" parent="UI/pauseContainer"]
+pause_mode = 2
 visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -100,4 +91,98 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="loseMenu" type="CenterContainer" parent="UI/pauseContainer"]
+pause_mode = 2
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/pauseContainer/loseMenu"]
+margin_left = 432.0
+margin_top = 248.0
+margin_right = 592.0
+margin_bottom = 352.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="UI/pauseContainer/loseMenu/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 14.0
+text = "You lost"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/pauseContainer/loseMenu/VBoxContainer"]
+margin_top = 34.0
+margin_right = 160.0
+margin_bottom = 104.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="homeButton" type="TextureButton" parent="UI/pauseContainer/loseMenu/VBoxContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="restartButton" type="TextureButton" parent="UI/pauseContainer/loseMenu/VBoxContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 160.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="winMenu" type="CenterContainer" parent="UI/pauseContainer"]
+pause_mode = 2
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/pauseContainer/winMenu"]
+margin_left = 432.0
+margin_top = 248.0
+margin_right = 592.0
+margin_bottom = 352.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/pauseContainer/winMenu/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 14.0
+text = "You won"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/pauseContainer/winMenu/VBoxContainer"]
+margin_top = 34.0
+margin_right = 160.0
+margin_bottom = 104.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="homeButton" type="TextureButton" parent="UI/pauseContainer/winMenu/VBoxContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="nextButton" type="TextureButton" parent="UI/pauseContainer/winMenu/VBoxContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 160.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
 [connection signal="pressed" from="UI/pauseContainer/pauseMenu/Button" to="UI" method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/pauseContainer/loseMenu/VBoxContainer/HBoxContainer/homeButton" to="UI" method="_on_homeButton_pressed"]
+[connection signal="pressed" from="UI/pauseContainer/winMenu/VBoxContainer/HBoxContainer/homeButton" to="UI" method="_on_homeButton_pressed"]
