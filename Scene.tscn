@@ -13,13 +13,13 @@ script = ExtResource( 6 )
 [node name="innerGame" type="Node2D" parent="."]
 
 [node name="dropzone" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 734.152, 287.868 )
+position = Vector2( 728.484, 284.321 )
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 436.991, 92.7933 )
+position = Vector2( 440.538, 94.5599 )
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 540.16, 286.91 )
+position = Vector2( 538.394, 282.301 )
 function = "back"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 2 )]
@@ -27,32 +27,31 @@ position = Vector2( 536.964, 93.3534 )
 function = "skip"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 538.91, 191.28 )
+position = Vector2( 538.203, 188.092 )
 function = "stop"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 2 )]
-position = Vector2( 637.334, 287.324 )
+position = Vector2( 634.143, 283.775 )
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 1 )]
-position = Vector2( 775.563, 320.255 )
+position = Vector2( 791.119, 335.104 )
 shape = "Hexagon"
 
 [node name="Node2D2" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 1 )]
-position = Vector2( 392.767, 100.628 )
+position = Vector2( 399.094, 172.651 )
 
 [node name="UI" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 3 )]
-visible = false
 mouse_filter = 2
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]
-visible = false
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -60,7 +59,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/pauseContainer"]
+[node name="pauseScreen" type="ColorRect" parent="UI/pauseContainer"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="pauseMenu" type="CenterContainer" parent="UI/pauseContainer"]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
@@ -68,29 +74,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="pauseMenu" type="Popup" parent="UI/pauseContainer/CenterContainer"]
+[node name="Button" type="Button" parent="UI/pauseContainer/pauseMenu"]
 pause_mode = 2
-visible = true
-margin_left = 512.0
-margin_top = 300.0
-margin_right = 512.0
-margin_bottom = 300.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="UI/pauseContainer/CenterContainer/pauseMenu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -10.0
-margin_right = 32.0
-margin_bottom = 10.0
+margin_left = 480.0
+margin_top = 290.0
+margin_right = 544.0
+margin_bottom = 310.0
 text = "Resume"
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="UI/pauseContainer/CenterContainer/pauseMenu/Button" to="UI" method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/pauseContainer/pauseMenu/Button" to="UI" method="_on_Button_pressed"]
