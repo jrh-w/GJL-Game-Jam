@@ -35,7 +35,7 @@ func new_log(name, a, b):
 			# Such is the needed transition between the blocks
 			get_node("UI/TextureRect").offset += 93
 		history.push_front(n)
-		isWon()
+		#isWon()
 		
 func restart_round():
 	if !roundEnd:
@@ -77,14 +77,22 @@ func reverse_round():
 			cube.updateColor()
 
 func isWon():
-	print("is won ?")
-	return # Blocked until connected
-	if roundEnd:
-		isLost = true
-		get_node("UI").lost()
-	else:
-		isWon = true
-		get_node("UI").won()
+	var areAllMatched = true
+	
+	for cube in get_tree().get_nodes_in_group("kotki"):
+		if areAllMatched && cube.onMatchingPos:
+			areAllMatched = true
+		else:
+			areAllMatched = false
+	
+	if areAllMatched:
+		print('won')
+		if roundEnd:
+			isLost = true
+			get_node("UI").lost()
+		else:
+			isWon = true
+			get_node("UI").won()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
