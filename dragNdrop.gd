@@ -6,6 +6,8 @@ var rest_nodes = []
 export var shape = "circle"
 var shapeId = 0
 
+var onMatchingPos = false
+
 func _ready():
 	#print(str("res://colorPalette/box_", shape, ".png"))
 	$pobrane.texture = load(str("res://colorPalette/box_", shape, ".png"))
@@ -66,4 +68,9 @@ func updateColor():
 		$pobrane.modulate = TextRect.colorDict[currColorTable[whereId]]
 		
 		if currColorTable[whereId] == rest_point.color:
+			onMatchingPos = true
 			rest_point.matched()
+		else:
+			onMatchingPos = false
+	
+	level.isWon()

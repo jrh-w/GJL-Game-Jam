@@ -37,8 +37,6 @@ func won():
 	pauseScreen.show()
 	winMenu.show()
 
-
-
 func _on_homeButton_pressed():
 	get_tree().paused = false
 	pauseScreen.hide()
