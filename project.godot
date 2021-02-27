@@ -24,6 +24,10 @@ config/name="GJL Game Jam"
 run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+LevelMenu="*res://levelMenu.gd"
+
 [display]
 
 window/size/resizable=false
