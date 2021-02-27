@@ -9,6 +9,9 @@ var history = [] # History of our moves
 
 var roundEnd = false
 
+var isWon = false
+var isLost = false
+
 var paused = false
 
 var rounds = 1
@@ -26,12 +29,13 @@ func new_log(name, a, b):
 		"to": b,
 		"doneWhilePaused": paused
 	}
-	# Such is the needed transition between the blocks
 	if !roundEnd: 
 		if !paused:
 			currentRound += 1
+			# Such is the needed transition between the blocks
 			get_node("UI/TextureRect").offset += 93
 		history.push_front(n)
+		isWon()
 		
 func restart_round():
 	if !roundEnd:
@@ -71,6 +75,16 @@ func reverse_round():
 		currentRound -= 1
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
+
+func isWon():
+	print("is won ?")
+	return # Blocked until connected
+	if roundEnd:
+		isLost = true
+		get_node("UI").lost()
+	else:
+		isWon = true
+		get_node("UI").won()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
