@@ -75,15 +75,17 @@ func backTwoRounds():
 func reverse_round():
 	if !roundEnd && history.size() > 0:
 		var route = history.pop_front()
-		if !route.from.busy:
-			get_node("innerGame/" + route.card).rest_point.deselect(true)
-			get_node("innerGame/" + route.card).rest_point = route.from
+		#if !route.from.busy:
+		get_node("innerGame/" + route.card).rest_point.deselect(true)
+		get_node("innerGame/" + route.card).rest_point = route.from
+		get_node("innerGame/" + route.card).rest_point.select()
+		if !route.doneWhilePaused:
 			get_node("UI/TextureRect").offset -= 93
 			currentRound -= 1
-			for cube in get_tree().get_nodes_in_group("kotki"):
-				cube.updateColor()
-		else:
-			history.push_front(route)
+		for cube in get_tree().get_nodes_in_group("kotki"):
+			cube.updateColor()
+		#else:
+		#history.push_front(route)
 
 func isWon():
 	var areAllMatched = true
@@ -100,16 +102,8 @@ func isWon():
 		isLost = true
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.get_node("pobrane").modulate = "666666"
+			cube.get_node("onPaused").visible = false
 		#get_node("UI").lost()
 	elif areAllMatched:
 		isWon = true
 		get_node("UI").won()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	time += delta
-	if time > 1.5:
-		emit_signal("timeout")
-		# Reset timer
-		time = 0
-#	pass

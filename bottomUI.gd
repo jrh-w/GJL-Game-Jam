@@ -26,7 +26,7 @@ var colorDict = {
 var shapes = ["square", "circle", "Hexagon", "triangle"]
 
 var colorTable = [["light_blue", "green", "yellow", "orange"], ["orange", "blue", "green", "light_blue"], 
-			["yellow", "orange", "light_blue", "blue"], ["orange", "blue", "light_blue", "yellow"], ["yellow", "green", "orange", "light_blue"]]
+			["yellow", "green", "light_blue", "blue"], ["orange", "blue", "light_blue", "yellow"], ["yellow", "green", "orange", "light_blue"]]
 var shapeTable = [3, 1, 2, 0]
 
 # Called when the node enters the scene tree for the first time.

@@ -7,17 +7,22 @@ export(int) var connectedPadlockId
 
 func _enter_tree():
 	#print(color)
-	var thisZoneColor = get_tree().get_root().get_node("Level/UI/TextureRect").colorDict[color]
 	
-	if function != "padlock":
-		$box.texture = load(str("res://colorPalette/box_background_", function ,".png"))
+	if color != "none":
+		var thisZoneColor = get_tree().get_root().get_node("Level/UI/TextureRect").colorDict[color]
+		
+		if function != "padlock":
+			$box.texture = load(str("res://colorPalette/box_background_", function ,".png"))
+		else:
+			$box/Padlock.visible = true
+			$box/Padlock/base.modulate = thisZoneColor
+			$box2.visible = false
+			busy = true
+		
+		$box2.modulate = thisZoneColor
 	else:
-		$box/Padlock.visible = true
-		$box/Padlock/base.modulate = thisZoneColor
+		$box.texture = load(str("res://colorPalette/box_background_", function ,".png"))
 		$box2.visible = false
-		busy = true
-	
-	$box2.modulate = thisZoneColor
 	#print(get_tree().get_root().get_node("Level/UI/TextureRect").colorDict["blue"])
 
 func init():
@@ -37,7 +42,6 @@ func select():
 	elif function == "stop":
 		get_tree().get_root().get_node("Level").paused = true
 		print("enter stop")
-	
 	
 func deselect(isReversing = false):
 	if function == "padlock" && !isReversing:

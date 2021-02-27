@@ -22,33 +22,33 @@ script = ExtResource( 2 )
 [node name="dropzone" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 740, 300 )
 function = "default"
-color = "orange"
+color = "none"
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 440, 100 )
 function = "default"
-color = "yellow"
+color = "none"
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 540, 300 )
 function = "back"
-color = "light_blue"
+color = "none"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 540, 100 )
 function = "skip"
-color = "orange"
+color = "green"
 connectedPadlockId = 7
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 540, 200 )
 function = "stop"
-color = "yellow"
+color = "none"
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 640, 300 )
 function = "default"
-color = "blue"
+color = "yellow"
 
 [node name="dropzone7" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 640, 200 )
