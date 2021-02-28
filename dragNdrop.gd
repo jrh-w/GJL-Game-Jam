@@ -97,6 +97,7 @@ func updateColor():
 			
 		if rest_point.function == "stop":
 			$onPaused.visible = true
-			$onPaused.modulate = darkcolorDict[currColorName]
+			# Weź to kurwa napraw !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			#$onPaused.modulate = darkcolorDict[currColorName]
 		else:
 			$onPaused.visible = false
