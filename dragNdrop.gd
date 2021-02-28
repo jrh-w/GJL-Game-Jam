@@ -11,6 +11,10 @@ var onMatchingPos = false
 onready var level = get_tree().get_root().get_node("Level")
 onready var textRect = get_tree().get_root().get_node("Level/UI/TextureRect")
 
+var pauseOverText = load("res://colorPalette/box_background_stop_1.png")
+var forwardOverText = load("res://colorPalette/box_background_skip_1.png")
+var backwardOverText = load("res://colorPalette/box_background_back_1.png")
+
 var darkcolorDict = {
 	"blue": "#503785",
 	"orange": "#ff954f",
@@ -78,6 +82,7 @@ func _input(event):
 				var padlockId = null
 				
 				if textRect.colorTable[textRect.offset / 93][textRect.shapeTable.find(shapeId, 0)] == rest_point.color:
+					print("matching color")
 					onMatchingPos = true
 					padlockId = rest_point.matched()
 					#print("Get padlock'ed")
@@ -94,7 +99,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	
 	if Input.is_action_just_pressed("click"):
 		
-		if !level.roundEnd:
+		if !level.roundEnd && !level.isWon && !level.isLost:
 			MusicController.play_sound("pick")
 			selected = true
 			
@@ -122,8 +127,15 @@ func updateColor():
 			
 		if rest_point.function == "stop":
 			$onPaused.visible = true
-			# Weź to kurwa napraw !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			# ok naprawione juz :D
 			$onPaused.modulate = darkcolorDict[currColorName]
+			$onPaused.texture = pauseOverText
+		elif rest_point.function == "skip":
+			$onPaused.visible = true
+			$onPaused.modulate = darkcolorDict[currColorName]
+			$onPaused.texture = forwardOverText
+		elif rest_point.function == "back":
+			$onPaused.visible = true
+			$onPaused.modulate = darkcolorDict[currColorName]
+			$onPaused.texture = backwardOverText
 		else:
 			$onPaused.visible = false
