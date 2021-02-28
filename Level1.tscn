@@ -53,7 +53,8 @@ color = "yellow"
 [node name="dropzone7" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 640, 200 )
 function = "padlock"
-color = "green"
+color = "orange"
+padlockIdItsConnTo = 4
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",

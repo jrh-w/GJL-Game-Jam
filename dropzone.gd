@@ -5,6 +5,8 @@ export(String, "none", "default", "back", "skip", "stop", "padlock") var functio
 export(String, "none", "blue", "orange", "light_blue", "green", "yellow") var color
 export(int) var connectedPadlockId
 
+export(int) var padlockIdItsConnTo
+
 func _enter_tree():
 	#print(color)
 	
@@ -15,8 +17,9 @@ func _enter_tree():
 			$box.texture = load(str("res://colorPalette/box_background_", function ,".png"))
 		else:
 			$box/Padlock.visible = true
-			$box/Padlock/base.modulate = thisZoneColor
-			$box2.visible = false
+			#$box/Padlock/base.modulate = thisZoneColor #default value but changed by field its assigned to
+			print(get_parent().get_node(str("dropzone", padlockIdItsConnTo)).modulate)
+			$box/Padlock/base.modulate = get_tree().get_root().get_node("Level/UI/TextureRect").colorDict[get_parent().get_node(str("dropzone", padlockIdItsConnTo)).color]
 			busy = true
 		
 		$box2.modulate = thisZoneColor
@@ -28,7 +31,7 @@ func _enter_tree():
 func init():
 	if function == "padlock":
 		$box/Padlock.visible = true
-		$box2.visible = false
+		#$box2.visible = false
 		busy = true
 
 func select(isReversing = false):
@@ -52,7 +55,7 @@ func deselect(isReversing = false):
 		MusicController.play_sound("lockClose")
 		
 		$box/Padlock.visible = true
-		$box2.visible = false
+		#$box2.visible = false
 		busy = true
 	else:
 		busy = false

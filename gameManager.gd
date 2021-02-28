@@ -92,9 +92,10 @@ func backTwoRounds():
 	else: return false
 
 func reverse_round():
+	
+	MusicController.play_sound("click")
+	
 	if history.size() > 0:
-		
-		MusicController.play_sound("click")
 		
 		var route = history.pop_front()
 		
@@ -140,7 +141,7 @@ func isWon():
 		MusicController.play_sound("end")
 		isLost = true
 		for cube in get_tree().get_nodes_in_group("kotki"):
-			cube.get_node("pobrane").modulate = "666666"
+			cube.get_node("pobrane").modulate = "3a302d"
 			cube.get_node("onPaused").visible = false
 		#get_node("UI").lost()
 	elif areAllMatched:

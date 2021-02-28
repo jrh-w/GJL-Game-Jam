@@ -22,7 +22,7 @@ var settings = {
 func _ready():
 	add_resolutions()
 	load_settings(CONFIG_PATH)
-	apply_settings()
+	#apply_settings()
 	optionMenu.connect("item_selected", self, "change_resolution")
 
 func add_resolutions():
