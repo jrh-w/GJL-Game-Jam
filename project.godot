@@ -21,12 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="GJL Game Jam"
-run/main_scene="res://Level1.tscn"
+run/main_scene="res://menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 LevelMenu="*res://levelMenu.gd"
+MusicController="*res://MusicController.tscn"
 
 [display]
 

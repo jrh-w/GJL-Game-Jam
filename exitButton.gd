@@ -11,4 +11,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_exitButton_pressed():
+	MusicController.play_sound("click")
+	
 	get_tree().quit()

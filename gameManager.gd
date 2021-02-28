@@ -49,6 +49,9 @@ func update_log(padlockId):
 	history.push_front(route)
 
 func restart_round():
+		
+		MusicController.play_sound("click")
+	
 		while history.size() > 0:
 			var route = history.pop_front()
 			get_node("innerGame/" + route.card).rest_point.deselect(true)
@@ -74,6 +77,7 @@ func restart_round():
 		#currentRound = 0
 
 func forwardTwoRounds():
+	print("robi sie")
 	if currentRound <= rounds - 2:
 		currentRound += 2
 		get_node("UI/TextureRect").offset += 2 * 93
@@ -89,6 +93,9 @@ func backTwoRounds():
 
 func reverse_round():
 	if history.size() > 0:
+		
+		MusicController.play_sound("click")
+		
 		var route = history.pop_front()
 		
 		#if !route.from.busy:

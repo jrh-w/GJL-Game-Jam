@@ -13,10 +13,10 @@ onready var textRect = get_tree().get_root().get_node("Level/UI/TextureRect")
 
 var darkcolorDict = {
 	"blue": "#503785",
-	"orange": "#FF643D",
-	"light_lue": "#79ABD1",
+	"orange": "#ff954f",
+	"light_blue": "#79ABD1",
 	"green": "#C8E687",
-	"yellow": "#CHUJWIE"
+	"yellow": "#ffe375"
 }
 
 func _ready():
@@ -32,18 +32,19 @@ func _ready():
 				var distance = global_position.distance_to(child.global_position)
 				if distance < global_position.distance_to(rest_point.global_position):
 					rest_point = child
+					
+	print("ready")
 	rest_point.select()
 	
 	updateColor()
 	
-func _on_Area2D_input_event(viewport, event, shape_idx):
 	
-	if Input.is_action_just_pressed("click"):
-		
-		if !level.roundEnd:
-			selected = true
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT && !event.pressed && selected:
 			
-	if Input.is_action_just_released("click"): 
+			MusicController.play_sound("drop")
+			
 			selected = false
 			var shortest_dist = 75
 			var tempRestPoint
@@ -66,6 +67,8 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					rest_point = tempRestPoint
 					var isExecuted = rest_point.select()
 					level.new_log(get_node(".").name, tempForLog, tempRestPoint, isExecuted)
+				else:
+					MusicController.play_sound("lockClose")
 						
 			for cube in get_tree().get_nodes_in_group("kotki"):
 				cube.updateColor()
@@ -77,7 +80,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 				if textRect.colorTable[textRect.offset / 93][textRect.shapeTable.find(shapeId, 0)] == rest_point.color:
 					onMatchingPos = true
 					padlockId = rest_point.matched()
-					print("Get padlock'ed")
+					#print("Get padlock'ed")
 				else:
 					onMatchingPos = false
 				
@@ -86,6 +89,15 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					level.update_log(padlockId)
 				
 				level.isWon()
+			
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	
+	if Input.is_action_just_pressed("click"):
+		
+		if !level.roundEnd:
+			MusicController.play_sound("pick")
+			selected = true
+			
 		
 func _physics_process(delta):
 	if selected:
@@ -111,6 +123,7 @@ func updateColor():
 		if rest_point.function == "stop":
 			$onPaused.visible = true
 			# Weź to kurwa napraw !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			#$onPaused.modulate = darkcolorDict[currColorName]
+			# ok naprawione juz :D
+			$onPaused.modulate = darkcolorDict[currColorName]
 		else:
 			$onPaused.visible = false

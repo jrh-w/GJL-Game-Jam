@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/End_Button.wav-839c8d8b08ea514f161e1255c1c7c98e.sample"
+
+[deps]
+
+source_file="res://sounds/End_Button.wav"
+dest_files=[ "res://.import/End_Button.wav-839c8d8b08ea514f161e1255c1c7c98e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

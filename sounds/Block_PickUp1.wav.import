@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Block_PickUp1.wav-1760f5bb27c340f7025ed5e723a31eef.sample"
+
+[deps]
+
+source_file="res://sounds/Block_PickUp1.wav"
+dest_files=[ "res://.import/Block_PickUp1.wav-1760f5bb27c340f7025ed5e723a31eef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

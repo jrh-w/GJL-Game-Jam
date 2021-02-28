@@ -34,12 +34,11 @@ func init():
 func select(isReversing = false):
 	busy = true
 	var isExecuted = true
-	
 	if function == "back" && !isReversing:
 		print("enter back")
 		isExecuted = get_tree().get_root().get_node("Level").backTwoRounds()
 	elif function == "skip" && !isReversing:
-		print("enter skip")
+		#print("enter skip")
 		isExecuted = get_tree().get_root().get_node("Level").forwardTwoRounds()
 	elif function == "stop":
 		get_tree().get_root().get_node("Level").paused = true
@@ -49,6 +48,9 @@ func select(isReversing = false):
 	
 func deselect(isReversing = false):
 	if function == "padlock" && !isReversing:
+		
+		MusicController.play_sound("lockClose")
+		
 		$box/Padlock.visible = true
 		$box2.visible = false
 		busy = true
@@ -67,6 +69,9 @@ func matched():
 		return null
 
 func open():
+	
+	MusicController.play_sound("lockOpen")
+	
 	$box/Padlock.visible = false
 	$box2.visible = true
 	busy = false
