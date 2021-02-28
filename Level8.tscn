@@ -19,7 +19,7 @@ script = ExtResource( 3 )
 
 [node name="innerGame" type="Node2D" parent="."]
 
-[node name="dropzone" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 440, 100 )
 function = "default"
 color = "none"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://menuGameButton.gd" type="Script" id=1]
+[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=2]
+[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=3]
+
+[node name="menuButton" type="TextureButton"]
+margin_right = 70.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 70, 60 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 1 )
+[connection signal="pressed" from="." to="." method="_on_menuButton_pressed"]

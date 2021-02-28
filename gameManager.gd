@@ -60,11 +60,11 @@ func restart_round():
 			get_node("innerGame/" + route.card).rest_point = route.from
 			get_node("innerGame/" + route.card).rest_point.select(true)
 			if route.to.function == "back" && route.moveExecuted:
-				get_node("UI/TextureRect").offset += 2 * 93
-				currentRound += 2
+				get_node("UI/TextureRect").offset += route.moveExecuted * 93
+				currentRound += route.moveExecuted
 			elif route.to.function == "skip" && route.moveExecuted:
-				get_node("UI/TextureRect").offset -= 2 * 93
-				currentRound -= 2
+				get_node("UI/TextureRect").offset -= route.moveExecuted * 93
+				currentRound -= route.moveExecuted
 			elif !route.doneWhilePaused && route.moveExecuted:
 				get_node("UI/TextureRect").offset -= 93
 				currentRound -= 1
@@ -83,15 +83,23 @@ func forwardTwoRounds():
 	if currentRound <= rounds - 2:
 		currentRound += 2
 		get_node("UI/TextureRect").offset += 2 * 93
-		return true
-	else: return false
+		return 2
+	elif currentRound == rounds - 1:
+		currentRound += 1
+		get_node("UI/TextureRect").offset += 93
+		return 1
+	else: return 0
 
 func backTwoRounds():
 	if currentRound >= 2:
 		currentRound -= 2
 		get_node("UI/TextureRect").offset -= 2 * 93
-		return true
-	else: return false
+		return 2
+	elif currentRound == 1:
+		currentRound -= 1
+		get_node("UI/TextureRect").offset -= 93
+		return 1
+	else: return 0
 
 func reverse_round():
 	
@@ -110,18 +118,19 @@ func reverse_round():
 		get_node("innerGame/" + route.card).rest_point.deselect(true)
 		get_node("innerGame/" + route.card).rest_point = route.from
 		get_node("innerGame/" + route.card).rest_point.select(true)
-
+		
+		print(route.padlockUnlocked)
 		# If not null, a padlock was unlocked
 		if route.padlockUnlocked != null:
 			# Array starts at 0, so index must be decremented
 			get_tree().get_nodes_in_group("zone")[route.padlockUnlocked - 1].init()
 
 		if route.to.function == "back" && route.moveExecuted:
-			get_node("UI/TextureRect").offset += 2 * 93
-			currentRound += 2
+			get_node("UI/TextureRect").offset += route.moveExecuted * 93
+			currentRound += route.moveExecuted
 		elif route.to.function == "skip" && route.moveExecuted:
-			get_node("UI/TextureRect").offset -= 2 * 93
-			currentRound -= 2
+			get_node("UI/TextureRect").offset -= route.moveExecuted * 93
+			currentRound -= route.moveExecuted
 		elif !route.doneWhilePaused && route.moveExecuted:
 			get_node("UI/TextureRect").offset -= 93
 			currentRound -= 1
@@ -140,7 +149,7 @@ func isWon():
 			areAllMatched = false
 	print(areAllMatched)
 	if roundEnd:
-		MusicController.play_sound("end")
+		MusicController.play_sound("lose")
 		isLost = true
 		
 		yield(get_tree().create_timer(0.5), "timeout")
@@ -150,7 +159,7 @@ func isWon():
 		#get_node("UI").lost()
 	elif areAllMatched:
 		print("allmatched")
-		MusicController.play_sound("end")
+		MusicController.play_sound("win")
 		isWon = true
 		
 		yield(get_tree().create_timer(0.5), "timeout")

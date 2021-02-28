@@ -2,11 +2,11 @@ extends VBoxContainer
 
 onready var level_normal = load("res://colorPalette/UI_Button_menu.png")
 onready var level_pressed = load("res://colorPalette/UI_Button_menu_1.png")
-onready var level_disabled = load("res://colorPalette/Padlock_0.png")
+onready var level_disabled = load("res://colorPalette/UI_Level_locked.png")
 
 const SAVE_PATH = "user://savegame.save"
 
-var isLocked = [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+var isLocked = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +18,7 @@ func _enter_tree():
 	defineLevelAccess()
 
 func defineLevelAccess():
-	#load_progress()
+	load_progress()
 	var level_buttons = get_tree().get_nodes_in_group("levels")
 	var iterator = 0
 	for button in level_buttons:

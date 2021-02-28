@@ -19,13 +19,14 @@ script = ExtResource( 3 )
 
 [node name="innerGame" type="Node2D" parent="."]
 
-[node name="dropzone" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 440, 100 )
-function = "stop"
-color = "none"
+function = "padlock"
+color = "light_blue"
+padlockIdItsConnTo = 5
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 540, 100 )
+position = Vector2( 540, 200 )
 function = "default"
 color = "none"
 
@@ -33,48 +34,57 @@ color = "none"
 position = Vector2( 440, 300 )
 function = "default"
 color = "orange"
-padlockIdItsConnTo = 5
+connectedPadlockId = 5
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 440, 200 )
-function = "default"
-color = "light_blue"
+function = "stop"
+color = "none"
+connectedPadlockId = 2
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 340, 200 )
-function = "default"
+function = "padlock"
 color = "green"
+connectedPadlockId = 1
+padlockIdItsConnTo = 3
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 340, 100 )
 function = "default"
 color = "none"
 
+[node name="dropzone7" parent="innerGame" instance=ExtResource( 11 )]
+position = Vector2( 540, 100 )
+function = "default"
+color = "none"
+
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
-position = Vector2( 322.827, 193.076 )
-shape = "triangle"
+position = Vector2( 311.513, 101.152 )
+shape = "square"
 
 [node name="Node2D2" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
-position = Vector2( 551.679, 84.4078 )
+position = Vector2( 590.691, 188.605 )
 
 [node name="Node2D3" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
-position = Vector2( 348.704, 93.8575 )
-shape = "square"
+position = Vector2( 395.373, 334.273 )
+shape = "triangle"
 
 [node name="UI" type="Node" parent="."]
 script = ExtResource( 2 )
 currLevelNumber = 11
+lastLevel = true
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 10 )]
 mouse_filter = 2
-colorTable = [ [ "light_blue", "green", "orange" ], [ "light_blue", "green", "orange" ], [ "light_blue", "green", "orange" ] ]
-shapes = [ "triangle", "circle", "square" ]
+colorTable = [ [ "green", "light_blue", "orange" ], [ "orange", "green", "light_blue" ], [ "orange", "green", "light_blue" ] ]
+shapes = [ "triangle", "square", "circle" ]
 shapeTable = [ 0, 1, 2 ]
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]

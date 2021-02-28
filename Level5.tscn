@@ -19,7 +19,7 @@ script = ExtResource( 3 )
 
 [node name="innerGame" type="Node2D" parent="."]
 
-[node name="dropzone" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 440, 100 )
 function = "default"
 color = "yellow"
@@ -31,7 +31,7 @@ color = "green"
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 640, 100 )
-function = "default"
+function = "back"
 color = "none"
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 11 )]
@@ -67,7 +67,7 @@ currLevelNumber = 5
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 10 )]
 mouse_filter = 2
-colorTable = [ [ "green", "yellow", "orange" ], [ "green", "yellow", "orange" ], [ "orange", "yellow", "green" ], [ "orange", "yellow", "green" ] ]
+colorTable = [ [ "green", "yellow", "orange" ], [ "green", "yellow", "orange" ], [ "orange", "yellow", "green" ] ]
 shapes = [ "circle", "triangle", "square" ]
 shapeTable = [ 0, 1, 2 ]
 

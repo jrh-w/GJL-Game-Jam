@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bottomUI.gd" type="Script" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://colorPalette/UI_Button_back_1.png" type="Texture" id=6]
 [ext_resource path="res://colorPalette/UI_Button_back.png" type="Texture" id=7]
 [ext_resource path="res://menuGameButton.gd" type="Script" id=8]
-[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=9]
-[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=10]
+[ext_resource path="res://homeButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=11]
 [ext_resource path="res://colorPalette/UI_Button_Sound_0.png" type="Texture" id=12]
 [ext_resource path="res://colorPalette/UI_Button_Sound_1.png" type="Texture" id=13]
@@ -125,15 +124,7 @@ margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="menuButton" type="TextureButton" parent="menuButtonContainer/HBoxContainer"]
-margin_right = 70.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 70, 60 )
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-script = ExtResource( 8 )
+[node name="menuButton" parent="menuButtonContainer/HBoxContainer" instance=ExtResource( 9 )]
 
 [node name="soundButton" type="TextureButton" parent="menuButtonContainer/HBoxContainer"]
 margin_left = 80.0
@@ -148,5 +139,5 @@ stretch_mode = 5
 script = ExtResource( 8 )
 [connection signal="pressed" from="backButtonContainer/VBoxContainer/restartButton" to="backButtonContainer/VBoxContainer/restartButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="backButtonContainer/VBoxContainer/reverseButton" to="backButtonContainer/VBoxContainer/reverseButton" method="_on_reverseButton_pressed"]
-[connection signal="pressed" from="menuButtonContainer/HBoxContainer/menuButton" to="menuButtonContainer/HBoxContainer/menuButton" method="_on_menuButton_pressed"]
+[connection signal="pressed" from="menuButtonContainer/HBoxContainer/soundButton" to="menuButtonContainer/HBoxContainer/menuButton" method="_on_soundButton_pressed"]
 [connection signal="toggled" from="menuButtonContainer/HBoxContainer/soundButton" to="menuButtonContainer/HBoxContainer/menuButton" method="_on_soundButton_toggled"]

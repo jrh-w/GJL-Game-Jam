@@ -30,15 +30,16 @@ func _enter_tree():
 
 func init():
 	if function == "padlock":
+		#print("init")
 		$box/Padlock.visible = true
 		#$box2.visible = false
 		busy = true
 
 func select(isReversing = false):
 	busy = true
-	var isExecuted = true
+	var isExecuted = 2
 	if function == "back" && !isReversing:
-		print("enter back")
+		#print("enter back")
 		isExecuted = get_tree().get_root().get_node("Level").backTwoRounds()
 	elif function == "skip" && !isReversing:
 		#print("enter skip")
@@ -46,7 +47,7 @@ func select(isReversing = false):
 	elif function == "stop":
 		get_tree().get_root().get_node("Level/UI/TextureRect/arrowContainer/Arrow/TextureRect").texture = load("res://colorPalette/UI_round_stop.png")
 		get_tree().get_root().get_node("Level").paused = true
-		print("enter stop")
+		#print("enter stop")
 	
 	return isExecuted
 	
@@ -63,14 +64,14 @@ func deselect(isReversing = false):
 		if function == "stop":
 			get_tree().get_root().get_node("Level/UI/TextureRect/arrowContainer/Arrow/TextureRect").texture = load("res://colorPalette/UI_round_arrow.png")
 			get_tree().get_root().get_node("Level").paused = false
-			print("leaving stop")
+			#print("leaving stop")
 
 func matched():
 	if connectedPadlockId:
 		get_parent().get_node(str("dropzone",connectedPadlockId)).open()
 		return connectedPadlockId
 	else:
-		print("no padlock assigned")
+		#print("no padlock assigned")
 		return null
 
 func open():

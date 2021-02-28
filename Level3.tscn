@@ -19,24 +19,24 @@ script = ExtResource( 2 )
 
 [node name="innerGame" type="Node2D" parent="."]
 
-[node name="dropzone2" parent="innerGame" instance=ExtResource( 9 )]
+[node name="dropzone1" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 440, 100 )
 function = "default"
 color = "none"
 
-[node name="dropzone3" parent="innerGame" instance=ExtResource( 9 )]
+[node name="dropzone2" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 640, 100 )
 function = "default"
 color = "orange"
-connectedPadlockId = 4
+connectedPadlockId = 3
 
-[node name="dropzone4" parent="innerGame" instance=ExtResource( 9 )]
+[node name="dropzone3" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 540, 100 )
 function = "padlock"
 color = "green"
-padlockIdItsConnTo = 3
+padlockIdItsConnTo = 2
 
-[node name="dropzone5" parent="innerGame" instance=ExtResource( 9 )]
+[node name="dropzone4" parent="innerGame" instance=ExtResource( 9 )]
 position = Vector2( 540, 200 )
 function = "stop"
 color = "none"
@@ -58,7 +58,7 @@ currLevelNumber = 3
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 11 )]
 mouse_filter = 2
-colorTable = [ [ "green", "orange" ], [ "orange", "green" ], [ "green", "orange" ], [ "green", "orange" ], [ "green", "orange" ] ]
+colorTable = [ [ "green", "orange" ], [ "orange", "green" ], [ "green", "orange" ] ]
 shapes = [ "circle", "triangle" ]
 shapeTable = [ 0, 1 ]
 

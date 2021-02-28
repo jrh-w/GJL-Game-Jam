@@ -39,19 +39,26 @@ func _ready():
 	#print(get_node("MarginContainer2/HBoxContainer/Arrow").get_size())
 	pass # Replace with function body.
 
+func _enter_tree():
+	#get_tree().get_root().get_node("Level/UI/TextureRect/menuButtonContainer/HBoxContainer/soundButton").manipulated = true
+	get_node("menuButtonContainer/HBoxContainer/soundButton").pressed = MusicController.InternalPaused
+
 func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 	var box = null
+	var prev = []
 	for colors in colorTab:
 		box = new_box.instance()
 		var color = 0
-		for number in shapeTable:
-			#print(colors[color]) # Current color of shape
-			var shape = new_shape.instance()
-			shape.get_node("Sprite").texture = load("res://colorPalette/" + shapes[number] + ".png")
-			shape.get_node("Sprite").modulate = colorDict[colors[color]]
-			box.get_node("MarginContainer/HBoxContainer").add_child(shape)
-			#shape.get_node()
-			color = color + 1
+		if colors != prev:
+			for number in shapeTable:
+				#print(colors[color]) # Current color of shape
+				var shape = new_shape.instance()
+				shape.get_node("Sprite").texture = load("res://colorPalette/" + shapes[number] + ".png")
+				shape.get_node("Sprite").modulate = colorDict[colors[color]]
+				box.get_node("MarginContainer/HBoxContainer").add_child(shape)
+				#shape.get_node()
+				color = color + 1
+		prev = colors
 		container.add_child(box)
 	box = new_box.instance()
 	box.isEndBlock = true
