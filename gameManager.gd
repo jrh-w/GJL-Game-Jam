@@ -31,7 +31,8 @@ func new_log(name, a, b, isExecuted):
 		"from": a,
 		"to": b,
 		"doneWhilePaused": paused,
-		"moveExecuted": isExecuted
+		"moveExecuted": isExecuted,
+		"padlockUnlocked": null
 	}
 	if !roundEnd: 
 		var isSkip = (b.function == "skip" || b.function == "back")
@@ -41,7 +42,12 @@ func new_log(name, a, b, isExecuted):
 			get_node("UI/TextureRect").offset += 93
 		history.push_front(n)
 		#isWon()
-		
+
+func update_log(padlockId):
+	var route = history.pop_front()
+	route.padlockUnlocked = padlockId
+	history.push_front(route)
+
 func restart_round():
 		while history.size() > 0:
 			var route = history.pop_front()
@@ -92,7 +98,12 @@ func reverse_round():
 		get_node("innerGame/" + route.card).rest_point.deselect(true)
 		get_node("innerGame/" + route.card).rest_point = route.from
 		get_node("innerGame/" + route.card).rest_point.select(true)
-		print(route.to.function)
+
+		# If not null, a padlock was unlocked
+		if route.padlockUnlocked != null:
+			# Array starts at 0, so index must be decremented
+			get_tree().get_nodes_in_group("zone")[route.padlockUnlocked - 1].init()
+
 		if route.to.function == "back" && route.moveExecuted:
 			get_node("UI/TextureRect").offset += 2 * 93
 			currentRound += 2

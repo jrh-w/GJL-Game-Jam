@@ -56,6 +56,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					
 			if tempRestPoint != null:
 				#if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
+				# Player can now move between any 2 cubes on level
 				if !tempRestPoint.busy:
 					rest_point.deselect()
 					
@@ -70,11 +71,19 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 				cube.updateColor()
 				
 			if level.currentRound < level.rounds:
+				
+				var padlockId = null
+				
 				if textRect.colorTable[textRect.offset / 93][textRect.shapeTable.find(shapeId, 0)] == rest_point.color:
 					onMatchingPos = true
-					rest_point.matched()
+					padlockId = rest_point.matched()
+					print("Get padlock'ed")
 				else:
 					onMatchingPos = false
+				
+				# Update move history by checking if padlock was unlocked
+				if tempRestPoint != null && padlockId != null:
+					level.update_log(padlockId)
 				
 				level.isWon()
 		

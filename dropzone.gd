@@ -61,8 +61,10 @@ func deselect(isReversing = false):
 func matched():
 	if connectedPadlockId:
 		get_parent().get_node(str("dropzone",connectedPadlockId)).open()
+		return connectedPadlockId
 	else:
 		print("no padlock assigned")
+		return null
 
 func open():
 	$box/Padlock.visible = false
