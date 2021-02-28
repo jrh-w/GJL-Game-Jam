@@ -44,6 +44,7 @@ func select(isReversing = false):
 		#print("enter skip")
 		isExecuted = get_tree().get_root().get_node("Level").forwardTwoRounds()
 	elif function == "stop":
+		get_tree().get_root().get_node("Level/UI/TextureRect/arrowContainer/Arrow/TextureRect").texture = load("res://colorPalette/UI_round_stop.png")
 		get_tree().get_root().get_node("Level").paused = true
 		print("enter stop")
 	
@@ -60,6 +61,7 @@ func deselect(isReversing = false):
 	else:
 		busy = false
 		if function == "stop":
+			get_tree().get_root().get_node("Level/UI/TextureRect/arrowContainer/Arrow/TextureRect").texture = load("res://colorPalette/UI_round_arrow.png")
 			get_tree().get_root().get_node("Level").paused = false
 			print("leaving stop")
 

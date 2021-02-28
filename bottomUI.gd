@@ -14,6 +14,9 @@ onready var circle = load("res://colorPalette/circle.png")
 onready var Hexagon = load("res://colorPalette/Hexagon.png")
 onready var triangle = load("res://colorPalette/triangle.png")
 
+export (Array, Array, String, "yellow", "green", "light_blue", "blue", "orange") var colorTable# = [["light_blue", "green", "yellow", "orange"], ["orange", "yellow", "green", "light_blue"], 
+			#["yellow", "green", "light_blue", "blue"], ["orange", "blue", "light_blue", "yellow"], ["yellow", "green", "orange", "light_blue"]]
+
 var offset = 0 # 93 is the space between one block
 
 var colorDict = {
@@ -23,11 +26,9 @@ var colorDict = {
 	"green": Color(0.6078, 0.8118, 0.4392),
 	"yellow": Color(1, 0.7451, 0.3608)
 }
-var shapes = ["square", "circle", "Hexagon", "triangle"]
+export (Array, String, "square", "circle", "Hexagon", "triangle") var shapes# = ["square", "circle", "Hexagon", "triangle"]
 
-var colorTable = [["light_blue", "green", "yellow", "orange"], ["orange", "yellow", "green", "light_blue"], 
-			["yellow", "green", "light_blue", "blue"], ["orange", "blue", "light_blue", "yellow"], ["yellow", "green", "orange", "light_blue"]]
-var shapeTable = [3, 1, 2, 0]
+export (Array, int ) var shapeTable# = [3, 1, 2, 0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

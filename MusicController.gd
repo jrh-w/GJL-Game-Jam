@@ -25,3 +25,7 @@ func quiet():
 func loud():
 	
 	$MusicPlayer.volume_db = 0
+
+func toggle(paused):
+	
+	$MusicPlayer.stream_paused = paused

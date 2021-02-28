@@ -82,6 +82,7 @@ func _input(event):
 				var padlockId = null
 				
 				if textRect.colorTable[textRect.offset / 93][textRect.shapeTable.find(shapeId, 0)] == rest_point.color:
+					print("matching color")
 					onMatchingPos = true
 					padlockId = rest_point.matched()
 					#print("Get padlock'ed")
@@ -98,7 +99,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	
 	if Input.is_action_just_pressed("click"):
 		
-		if !level.roundEnd:
+		if !level.roundEnd && !level.isWon && !level.isLost:
 			MusicController.play_sound("pick")
 			selected = true
 			

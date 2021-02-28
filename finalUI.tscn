@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bottomUI.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=9]
 [ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=10]
 [ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=11]
+[ext_resource path="res://colorPalette/UI_Button_Sound_0.png" type="Texture" id=12]
+[ext_resource path="res://colorPalette/UI_Button_Sound_1.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.3853, 45.2808 )
@@ -83,13 +85,13 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="backButtonContainer"]
-margin_right = 100.0
+margin_right = 70.0
 margin_bottom = 200.0
 alignment = 1
 
 [node name="restartButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
 margin_top = 38.0
-margin_right = 100.0
+margin_right = 70.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 40, 60 )
 texture_normal = ExtResource( 3 )
@@ -100,7 +102,7 @@ script = ExtResource( 4 )
 
 [node name="reverseButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
 margin_top = 102.0
-margin_right = 100.0
+margin_right = 70.0
 margin_bottom = 162.0
 rect_min_size = Vector2( 70, 60 )
 texture_normal = ExtResource( 7 )
@@ -110,27 +112,41 @@ stretch_mode = 5
 script = ExtResource( 5 )
 
 [node name="menuButtonContainer" type="MarginContainer" parent="."]
+margin_left = 15.0
 margin_right = 100.0
 margin_bottom = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menuButtonContainer"]
-margin_right = 100.0
+[node name="HBoxContainer" type="HBoxContainer" parent="menuButtonContainer"]
+margin_right = 150.0
 margin_bottom = 100.0
+custom_constants/separation = 10
 alignment = 1
 
-[node name="menuButton" type="TextureButton" parent="menuButtonContainer/VBoxContainer"]
-margin_top = 20.0
-margin_right = 100.0
-margin_bottom = 80.0
+[node name="menuButton" type="TextureButton" parent="menuButtonContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 70, 60 )
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 8 )
+
+[node name="soundButton" type="TextureButton" parent="menuButtonContainer/HBoxContainer"]
+margin_left = 80.0
+margin_right = 150.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 70, 60 )
+toggle_mode = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 8 )
 [connection signal="pressed" from="backButtonContainer/VBoxContainer/restartButton" to="backButtonContainer/VBoxContainer/restartButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="backButtonContainer/VBoxContainer/reverseButton" to="backButtonContainer/VBoxContainer/reverseButton" method="_on_reverseButton_pressed"]
-[connection signal="pressed" from="menuButtonContainer/VBoxContainer/menuButton" to="menuButtonContainer/VBoxContainer/menuButton" method="_on_menuButton_pressed"]
+[connection signal="pressed" from="menuButtonContainer/HBoxContainer/menuButton" to="menuButtonContainer/HBoxContainer/menuButton" method="_on_menuButton_pressed"]
+[connection signal="toggled" from="menuButtonContainer/HBoxContainer/soundButton" to="menuButtonContainer/HBoxContainer/menuButton" method="_on_soundButton_toggled"]
