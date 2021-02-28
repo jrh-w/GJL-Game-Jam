@@ -15,7 +15,7 @@ func play_sound(type):
 		$SoundPlayer.stream = load(str("res://sounds/Lock_Open.wav"))
 	elif type == "lockClose":
 		$SoundPlayer.stream = load(str("res://sounds/Lock_Close.wav"))
-		
+	
 	$SoundPlayer.play()
 
 func quiet():

@@ -52,7 +52,6 @@ func change_resolution(id):
 	save_settings(CONFIG_PATH)
 
 func _on_isFullscreen_pressed():
-	MusicController.play_sound("click")
 	
 	settings.screen.fullscreen = fullscreenOption.pressed
 	if fullscreenOption.pressed:
