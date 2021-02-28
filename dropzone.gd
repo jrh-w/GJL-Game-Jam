@@ -18,7 +18,7 @@ func _enter_tree():
 		else:
 			$box/Padlock.visible = true
 			#$box/Padlock/base.modulate = thisZoneColor #default value but changed by field its assigned to
-			print(get_parent().get_node(str("dropzone", padlockIdItsConnTo)).modulate)
+			#print(get_parent().get_node(str("dropzone", padlockIdItsConnTo)).modulate)
 			$box/Padlock/base.modulate = get_tree().get_root().get_node("Level/UI/TextureRect").colorDict[get_parent().get_node(str("dropzone", padlockIdItsConnTo)).color]
 			busy = true
 		

@@ -22,7 +22,7 @@ script = ExtResource( 3 )
 [node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 440, 100 )
 function = "padlock"
-color = "light_blue"
+color = "blue"
 padlockIdItsConnTo = 5
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 11 )]
@@ -31,16 +31,15 @@ function = "default"
 color = "none"
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 440, 300 )
+position = Vector2( 540, 100 )
 function = "default"
-color = "orange"
+color = "light_blue"
 connectedPadlockId = 5
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 440, 200 )
 function = "stop"
 color = "none"
-connectedPadlockId = 2
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 11 )]
 position = Vector2( 340, 200 )
@@ -55,9 +54,9 @@ function = "default"
 color = "none"
 
 [node name="dropzone7" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 540, 100 )
+position = Vector2( 440, 300 )
 function = "default"
-color = "none"
+color = "orange"
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
@@ -83,7 +82,7 @@ lastLevel = true
 
 [node name="TextureRect" parent="UI" instance=ExtResource( 10 )]
 mouse_filter = 2
-colorTable = [ [ "green", "light_blue", "orange" ], [ "orange", "green", "light_blue" ], [ "orange", "green", "light_blue" ] ]
+colorTable = [ [ "green", "light_blue", "orange" ], [ "orange", "green", "light_blue" ], [ "orange", "green", "blue" ] ]
 shapes = [ "triangle", "square", "circle" ]
 shapeTable = [ 0, 1, 2 ]
 

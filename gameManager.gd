@@ -77,6 +77,8 @@ func restart_round():
 		
 		roundEnd = false
 		#currentRound = 0
+	isLost = false
+	isWon = false
 
 func forwardTwoRounds():
 	print("robi sie")
