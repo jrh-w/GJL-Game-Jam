@@ -13,4 +13,4 @@ volume_db = -10.0
 autoplay = true
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 5.0
+volume_db = 10.0

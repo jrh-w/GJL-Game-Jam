@@ -137,11 +137,13 @@ func isWon():
 	yield(get_tree().create_timer(0.5), "timeout")
 		
 	if roundEnd:
+		MusicController.play_sound("end")
 		isLost = true
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.get_node("pobrane").modulate = "666666"
 			cube.get_node("onPaused").visible = false
 		#get_node("UI").lost()
 	elif areAllMatched:
+		MusicController.play_sound("end")
 		isWon = true
 		get_node("UI").won()
