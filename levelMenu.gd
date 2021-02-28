@@ -6,7 +6,7 @@ onready var level_disabled = load("res://colorPalette/Padlock_0.png")
 
 const SAVE_PATH = "user://savegame.save"
 
-var isLocked = [1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+var isLocked = [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
