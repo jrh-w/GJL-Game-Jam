@@ -33,7 +33,8 @@ func new_log(name, a, b):
 		"doneWhilePaused": paused
 	}
 	if !roundEnd: 
-		if !paused:
+		var isSkip = (b.function == "skip" || b.function == "back")
+		if !paused && !isSkip:
 			currentRound += 1
 			# Such is the needed transition between the blocks
 			get_node("UI/TextureRect").offset += 93
@@ -43,12 +44,18 @@ func new_log(name, a, b):
 func restart_round():
 		while history.size() > 0:
 			var route = history.pop_front()
-			get_node("innerGame/" + route.card).rest_point.deselect()
+			get_node("innerGame/" + route.card).rest_point.deselect(true)
 			get_node("innerGame/" + route.card).rest_point = route.from
-			get_node("innerGame/" + route.card).rest_point.select()
-			if !route.doneWhilePaused:
-				currentRound -= 1
+			get_node("innerGame/" + route.card).rest_point.select(true)
+			if route.to.function == "back":
+				get_node("UI/TextureRect").offset += 2 * 93
+				currentRound += 2
+			elif route.to.function == "skip":
+				get_node("UI/TextureRect").offset -= 2 * 93
+				currentRound -= 2
+			elif !route.doneWhilePaused:
 				get_node("UI/TextureRect").offset -= 93
+				currentRound -= 1
 				
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
@@ -56,24 +63,31 @@ func restart_round():
 		for drop in get_tree().get_nodes_in_group("zone"):
 			drop.init()
 		
-		get_tree().get_root().get_node("Level/UI/TextureRect/backButtonContainer/VBoxContainer/reverseButton").disabled = false
 		roundEnd = false
-				
+
+func forwardTwoRounds():
+	if currentRound <= rounds - 2:
+		currentRound += 2
+		get_node("UI/TextureRect").offset += 2 * 93
+
 func backTwoRounds():
-	if !roundEnd && history.size() > 1:
-		for i in range(2):
-			var route = history.pop_front()
-			get_node("innerGame/" + route.card).rest_point.deselect()
-			get_node("innerGame/" + route.card).rest_point = route.from
-			if !paused:
-				currentRound -= 1
-				get_node("UI/TextureRect").offset -= 93
-			
-		for cube in get_tree().get_nodes_in_group("kotki"):
-			cube.updateColor()
+	if currentRound >= 2:
+		currentRound -= 2
+		get_node("UI/TextureRect").offset -= 2 * 93
+#	if !roundEnd && history.size() > 1:
+#		for i in range(2):
+#			var route = history.pop_front()
+#			get_node("innerGame/" + route.card).rest_point.deselect()
+#			get_node("innerGame/" + route.card).rest_point = route.from
+#			if !paused:
+#				currentRound -= 1
+#				get_node("UI/TextureRect").offset -= 93
+#
+#		for cube in get_tree().get_nodes_in_group("kotki"):
+#			cube.updateColor()
 
 func reverse_round():
-	if !roundEnd && history.size() > 0:
+	if history.size() > 0:
 		var route = history.pop_front()
 		#if !route.from.busy:
 		if route.from.function == "padlock":
@@ -81,8 +95,15 @@ func reverse_round():
 			
 		get_node("innerGame/" + route.card).rest_point.deselect(true)
 		get_node("innerGame/" + route.card).rest_point = route.from
-		get_node("innerGame/" + route.card).rest_point.select()
-		if !route.doneWhilePaused:
+		get_node("innerGame/" + route.card).rest_point.select(true)
+		print(route.to.function)
+		if route.to.function == "back":
+			get_node("UI/TextureRect").offset += 2 * 93
+			currentRound += 2
+		elif route.to.function == "skip":
+			get_node("UI/TextureRect").offset -= 2 * 93
+			currentRound -= 2
+		elif !route.doneWhilePaused:
 			get_node("UI/TextureRect").offset -= 93
 			currentRound -= 1
 		for cube in get_tree().get_nodes_in_group("kotki"):

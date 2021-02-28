@@ -31,14 +31,15 @@ func init():
 		$box2.visible = false
 		busy = true
 
-func select():
+func select(isReversing = false):
 	busy = true
 	
-	if function == "back":
+	if function == "back" && !isReversing:
 		print("enter back")
 		get_tree().get_root().get_node("Level").backTwoRounds()
-	elif function == "skip":
+	elif function == "skip" && !isReversing:
 		print("enter skip")
+		get_tree().get_root().get_node("Level").forwardTwoRounds()
 	elif function == "stop":
 		get_tree().get_root().get_node("Level").paused = true
 		print("enter stop")

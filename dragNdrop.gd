@@ -55,7 +55,8 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 					shortest_dist = distance
 					
 			if tempRestPoint != null:
-				if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
+				#if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
+				if !tempRestPoint.busy:
 					rest_point.deselect()
 					level.new_log(get_node(".").name, rest_point, tempRestPoint)
 					rest_point = tempRestPoint
