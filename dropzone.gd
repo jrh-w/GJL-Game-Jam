@@ -33,16 +33,19 @@ func init():
 
 func select(isReversing = false):
 	busy = true
+	var isExecuted = true
 	
 	if function == "back" && !isReversing:
 		print("enter back")
-		get_tree().get_root().get_node("Level").backTwoRounds()
+		isExecuted = get_tree().get_root().get_node("Level").backTwoRounds()
 	elif function == "skip" && !isReversing:
 		print("enter skip")
-		get_tree().get_root().get_node("Level").forwardTwoRounds()
+		isExecuted = get_tree().get_root().get_node("Level").forwardTwoRounds()
 	elif function == "stop":
 		get_tree().get_root().get_node("Level").paused = true
 		print("enter stop")
+	
+	return isExecuted
 	
 func deselect(isReversing = false):
 	if function == "padlock" && !isReversing:

@@ -58,9 +58,13 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 				#if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
 				if !tempRestPoint.busy:
 					rest_point.deselect()
-					level.new_log(get_node(".").name, rest_point, tempRestPoint)
+					
+					# Needed !!!!!!
+					var tempForLog = rest_point
+					
 					rest_point = tempRestPoint
-					rest_point.select()
+					var isExecuted = rest_point.select()
+					level.new_log(get_node(".").name, tempForLog, tempRestPoint, isExecuted)
 						
 			for cube in get_tree().get_nodes_in_group("kotki"):
 				cube.updateColor()
