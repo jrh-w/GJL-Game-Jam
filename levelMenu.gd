@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-onready var level_normal = load("res://colorPalette/UI_Button_menu.png")
+onready var level_normal = load("res://colorPalette/box_background.png")
 onready var level_pressed = load("res://colorPalette/UI_Button_menu_1.png")
 onready var level_disabled = load("res://colorPalette/UI_Level_locked.png")
 
@@ -28,7 +28,8 @@ func defineLevelAccess():
 		else:
 			button.disabled = false
 			button.texture_normal = level_normal
-			button.texture_pressed = level_pressed
+			button.get_node("Label").text = str(iterator + 1)
+			#button.texture_pressed = level_pressed
 		iterator += 1
 
 func load_progress():
