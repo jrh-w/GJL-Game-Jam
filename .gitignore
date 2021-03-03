@@ -7,3 +7,4 @@ build/
 lib/
 
 .mono/metadata/ide_messaging_meta.txt
+.mono/metadata/ide_messaging_meta.txt
