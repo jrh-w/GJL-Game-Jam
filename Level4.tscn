@@ -1,65 +1,84 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://UI.gd" type="Script" id=1]
-[ext_resource path="res://gameManager.gd" type="Script" id=2]
-[ext_resource path="res://resumeButton.gd" type="Script" id=3]
-[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=4]
-[ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=5]
-[ext_resource path="res://colorPalette/box_background_skip.png" type="Texture" id=6]
-[ext_resource path="res://colorPalette/UI_Button_restart.png" type="Texture" id=7]
-[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=8]
-[ext_resource path="res://dropzone.tscn" type="PackedScene" id=9]
-[ext_resource path="res://dragNdrop.tscn" type="PackedScene" id=10]
-[ext_resource path="res://finalUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://colorPalette/box_background_skip.png" type="Texture" id=1]
+[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=2]
+[ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=3]
+[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=4]
+[ext_resource path="res://colorPalette/UI_Button_restart.png" type="Texture" id=5]
+[ext_resource path="res://finalUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://dropzone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://dragNdrop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://resumeButton.gd" type="Script" id=9]
+[ext_resource path="res://gameManager.gd" type="Script" id=10]
+[ext_resource path="res://UI.gd" type="Script" id=11]
 
 [node name="Level" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 10 )
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="innerGame" type="Node2D" parent="."]
 
-[node name="dropzone1" parent="innerGame" instance=ExtResource( 9 )]
+[node name="dropzone1" parent="innerGame" instance=ExtResource( 7 )]
 position = Vector2( 440, 100 )
 function = "default"
 color = "none"
 
-[node name="dropzone2" parent="innerGame" instance=ExtResource( 9 )]
-position = Vector2( 640, 100 )
-function = "skip"
-color = "light_blue"
-
-[node name="dropzone3" parent="innerGame" instance=ExtResource( 9 )]
-position = Vector2( 440, 200 )
+[node name="dropzone2" parent="innerGame" instance=ExtResource( 7 )]
+position = Vector2( 540, 100 )
 function = "default"
 color = "none"
 
-[node name="dropzone4" parent="innerGame" instance=ExtResource( 9 )]
-position = Vector2( 640, 200 )
-function = "back"
+[node name="dropzone3" parent="innerGame" instance=ExtResource( 7 )]
+position = Vector2( 640, 100 )
+function = "padlock"
+color = "green"
+padlockIdItsConnTo = 5
+
+[node name="dropzone4" parent="innerGame" instance=ExtResource( 7 )]
+position = Vector2( 440, 200 )
+function = "default"
+color = "light_blue"
+connectedPadlockId = 5
+
+[node name="dropzone5" parent="innerGame" instance=ExtResource( 7 )]
+position = Vector2( 540, 200 )
+function = "padlock"
 color = "orange"
+connectedPadlockId = 3
+padlockIdItsConnTo = 4
+
+[node name="dropzone6" parent="innerGame" instance=ExtResource( 7 )]
+position = Vector2( 340, 100 )
+function = "default"
+color = "none"
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
-] instance=ExtResource( 10 )]
-position = Vector2( 407.042, 201.679 )
+] instance=ExtResource( 8 )]
+position = Vector2( 440.207, 95.4948 )
 shape = "triangle"
 
 [node name="Node2D2" parent="innerGame" groups=[
 "kotki",
-] instance=ExtResource( 10 )]
-position = Vector2( 400.486, 98.6142 )
+] instance=ExtResource( 8 )]
+position = Vector2( 333.89, 91.4789 )
+
+[node name="Node2D3" parent="innerGame" groups=[
+"kotki",
+] instance=ExtResource( 8 )]
+position = Vector2( 539.623, 93.8575 )
 shape = "square"
 
 [node name="UI" type="Node" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( 11 )
 currLevelNumber = 4
 
-[node name="TextureRect" parent="UI" instance=ExtResource( 11 )]
+[node name="TextureRect" parent="UI" instance=ExtResource( 6 )]
 mouse_filter = 2
-colorTable = [ [ "light_blue", "orange" ], [ "light_blue", "orange" ], [ "orange", "light_blue" ] ]
-shapes = [ "square", "triangle" ]
-shapeTable = [ 0, 1 ]
+colorTable = [ [ "light_blue", "orange", "green" ], [ "light_blue", "orange", "green" ], [ "light_blue", "orange", "green" ], [ "light_blue", "orange", "green" ] ]
+shapes = [ "square", "triangle", "circle" ]
+shapeTable = [ 0, 1, 2 ]
 
 [node name="pauseContainer" type="MarginContainer" parent="UI"]
 pause_mode = 2
@@ -94,7 +113,7 @@ margin_top = 290.0
 margin_right = 544.0
 margin_bottom = 310.0
 text = "Resume"
-script = ExtResource( 3 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -130,8 +149,8 @@ alignment = 1
 margin_right = 70.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
@@ -140,8 +159,8 @@ margin_left = 90.0
 margin_right = 160.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
@@ -177,8 +196,8 @@ alignment = 1
 margin_right = 70.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
@@ -187,7 +206,7 @@ margin_left = 90.0
 margin_right = 160.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 [connection signal="pressed" from="UI/pauseContainer/pauseMenu/Button" to="UI" method="_on_Button_pressed"]

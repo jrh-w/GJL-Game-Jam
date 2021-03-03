@@ -1,9 +1,6 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const OFFSET = 94
 
 var history = [] # History of our moves
 
@@ -13,6 +10,8 @@ var isWon = false
 var isLost = false
 
 var paused = false
+
+var onlyOneSelected = true
 
 var rounds = 1
 var currentRound = 0
@@ -39,7 +38,7 @@ func new_log(name, a, b, isExecuted):
 		if !paused && !isSkip:
 			currentRound += 1
 			# Such is the needed transition between the blocks
-			get_node("UI/TextureRect").offset += 93
+			get_node("UI/TextureRect").offset += OFFSET
 		history.push_front(n)
 		#isWon()
 
@@ -60,13 +59,13 @@ func restart_round():
 			get_node("innerGame/" + route.card).rest_point = route.from
 			get_node("innerGame/" + route.card).rest_point.select(true)
 			if route.to.function == "back" && route.moveExecuted:
-				get_node("UI/TextureRect").offset += route.moveExecuted * 93
+				get_node("UI/TextureRect").offset += route.moveExecuted * OFFSET
 				currentRound += route.moveExecuted
 			elif route.to.function == "skip" && route.moveExecuted:
-				get_node("UI/TextureRect").offset -= route.moveExecuted * 93
+				get_node("UI/TextureRect").offset -= route.moveExecuted * OFFSET
 				currentRound -= route.moveExecuted
 			elif !route.doneWhilePaused && route.moveExecuted:
-				get_node("UI/TextureRect").offset -= 93
+				get_node("UI/TextureRect").offset -= OFFSET
 				currentRound -= 1
 				
 		for cube in get_tree().get_nodes_in_group("kotki"):
@@ -84,22 +83,22 @@ func forwardTwoRounds():
 	print("robi sie")
 	if currentRound <= rounds - 2:
 		currentRound += 2
-		get_node("UI/TextureRect").offset += 2 * 93
+		get_node("UI/TextureRect").offset += 2 * OFFSET
 		return 2
 	elif currentRound == rounds - 1:
 		currentRound += 1
-		get_node("UI/TextureRect").offset += 93
+		get_node("UI/TextureRect").offset += OFFSET
 		return 1
 	else: return 0
 
 func backTwoRounds():
 	if currentRound >= 2:
 		currentRound -= 2
-		get_node("UI/TextureRect").offset -= 2 * 93
+		get_node("UI/TextureRect").offset -= 2 * OFFSET
 		return 2
 	elif currentRound == 1:
 		currentRound -= 1
-		get_node("UI/TextureRect").offset -= 93
+		get_node("UI/TextureRect").offset -= OFFSET
 		return 1
 	else: return 0
 
@@ -128,13 +127,13 @@ func reverse_round():
 			get_tree().get_nodes_in_group("zone")[route.padlockUnlocked - 1].init()
 
 		if route.to.function == "back" && route.moveExecuted:
-			get_node("UI/TextureRect").offset += route.moveExecuted * 93
+			get_node("UI/TextureRect").offset += route.moveExecuted * OFFSET
 			currentRound += route.moveExecuted
 		elif route.to.function == "skip" && route.moveExecuted:
-			get_node("UI/TextureRect").offset -= route.moveExecuted * 93
+			get_node("UI/TextureRect").offset -= route.moveExecuted * OFFSET
 			currentRound -= route.moveExecuted
 		elif !route.doneWhilePaused && route.moveExecuted:
-			get_node("UI/TextureRect").offset -= 93
+			get_node("UI/TextureRect").offset -= OFFSET
 			currentRound -= 1
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
@@ -149,7 +148,7 @@ func isWon():
 			areAllMatched = true
 		else:
 			areAllMatched = false
-	print(areAllMatched)
+	#print(areAllMatched)
 	if roundEnd:
 		MusicController.play_sound("lose")
 		isLost = true

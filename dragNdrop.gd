@@ -96,7 +96,17 @@ func _input(event):
 				level.isWon()
 			
 func _on_Area2D_input_event(viewport, event, shape_idx):
-	
+
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and !event.pressed:
+			level.onlyOneSelected = true
+	elif event is InputEventScreenTouch:
+		if event.pressed and event.get_index() == 0:
+			if !level.roundEnd && !level.isWon && !level.isLost && level.onlyOneSelected:
+				MusicController.play_sound("pick")
+				selected = true
+				level.onlyOneSelected = false
+
 	if Input.is_action_just_pressed("click"):
 		
 		if !level.roundEnd && !level.isWon && !level.isLost:
