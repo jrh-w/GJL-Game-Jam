@@ -1,21 +1,16 @@
 extends TextureButton
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+var orangeRestartButton = load("res://colorPalette/UI_Button_Last_Tour.png")
+var normalRestartButton = load("res://colorPalette/UI_Button_restart.png")
 
 func _on_TextureButton_pressed():
+	turnNormal()
 	get_tree().get_root().get_node("Level").restart_round()
 	pass # Replace with function body.
+
+func turnOrange():
+	get_node(".").texture_normal = orangeRestartButton
+	
+func turnNormal():
+	get_node(".").texture_normal = normalRestartButton
+	get_tree().get_root().get_node("Level/UI/TextureRect/LastTour").on = false

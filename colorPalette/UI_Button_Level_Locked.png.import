@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UI_Round_Arrow.png-d32c055814fc95339dc0fea9245b4321.stex"
+path="res://.import/UI_Button_Level_Locked.png-0bf89eae141dd6ed5ac8fb673580985d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://colorPalette/UI_Round_Arrow.png"
-dest_files=[ "res://.import/UI_Round_Arrow.png-d32c055814fc95339dc0fea9245b4321.stex" ]
+source_file="res://colorPalette/UI_Button_Level_Locked.png"
+dest_files=[ "res://.import/UI_Button_Level_Locked.png-0bf89eae141dd6ed5ac8fb673580985d.stex" ]
 
 [params]
 

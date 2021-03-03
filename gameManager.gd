@@ -104,6 +104,9 @@ func backTwoRounds():
 
 func reverse_round():
 	
+	get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnNormal()
+	get_node("UI/TextureRect/LastTour").on = false
+	
 	if isLost: isLost = false
 	
 	MusicController.play_sound("click")
@@ -149,19 +152,22 @@ func isWon():
 		else:
 			areAllMatched = false
 	#print(areAllMatched)
-	if roundEnd:
-		MusicController.play_sound("lose")
-		isLost = true
+	
+	if areAllMatched:
+		if !isWon:
+			print("allmatched")
+			MusicController.play_sound("win")
+			isWon = true
 		
-		yield(get_tree().create_timer(0.5), "timeout")
-		for cube in get_tree().get_nodes_in_group("kotki"):
-			cube.get_node("pobrane").modulate = "3a302d"
-			cube.get_node("onPaused").visible = false
-		#get_node("UI").lost()
-	elif areAllMatched:
-		print("allmatched")
-		MusicController.play_sound("win")
-		isWon = true
-		
-		yield(get_tree().create_timer(0.5), "timeout")
-		get_node("UI").won()
+			yield(get_tree().create_timer(0.5), "timeout")
+			get_node("UI").won()
+	elif roundEnd:
+#		yield(get_tree().create_timer(0.5), "timeout")
+#		for cube in get_tree().get_nodes_in_group("kotki"):
+#			cube.get_node("pobrane").modulate = "3a302d"
+#			cube.get_node("onPaused").visible = false
+		#get_node("UI").lost()\
+			MusicController.play_sound("lose")
+			isLost = true
+			get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnOrange()
+			get_node("UI/TextureRect/LastTour").on = true

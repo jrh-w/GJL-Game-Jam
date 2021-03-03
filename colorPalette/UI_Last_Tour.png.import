@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UI_Round_Arrow.png-d32c055814fc95339dc0fea9245b4321.stex"
+path="res://.import/UI_Last_Tour.png-81f4ab7feb8fe01aa4f5e126a96c3371.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://colorPalette/UI_Round_Arrow.png"
-dest_files=[ "res://.import/UI_Round_Arrow.png-d32c055814fc95339dc0fea9245b4321.stex" ]
+source_file="res://colorPalette/UI_Last_Tour.png"
+dest_files=[ "res://.import/UI_Last_Tour.png-81f4ab7feb8fe01aa4f5e126a96c3371.stex" ]
 
 [params]
 

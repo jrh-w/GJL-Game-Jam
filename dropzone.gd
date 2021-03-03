@@ -81,3 +81,12 @@ func open():
 	$box/Padlock.visible = false
 	$box2.visible = true
 	busy = false
+
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	
+	if Input.is_action_just_pressed("click") || (event is InputEventScreenTouch && event.pressed and event.get_index() == 0):
+		MusicController.play_sound("lockClose")
+#	if event is InputEventScreenTouch:
+#		if event.pressed and event.get_index() == 0:
+#			MusicController.play_sound("pick")

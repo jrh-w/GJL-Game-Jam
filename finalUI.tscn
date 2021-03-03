@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bottomUI.gd" type="Script" id=2]
@@ -9,9 +9,11 @@
 [ext_resource path="res://colorPalette/UI_Button_back.png" type="Texture" id=7]
 [ext_resource path="res://menuGameButton.gd" type="Script" id=8]
 [ext_resource path="res://homeButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://colorPalette/UI_Last_Tour.png" type="Texture" id=10]
 [ext_resource path="res://colorPalette/UI_Button_restart_1.png" type="Texture" id=11]
 [ext_resource path="res://colorPalette/UI_Button_Sound_0.png" type="Texture" id=12]
 [ext_resource path="res://colorPalette/UI_Button_Sound_1.png" type="Texture" id=13]
+[ext_resource path="res://LastTour.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.3853, 45.2808 )
@@ -137,6 +139,25 @@ texture_pressed = ExtResource( 12 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 8 )
+
+[node name="LastTour" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -300.0
+margin_right = -50.0
+margin_bottom = 150.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="LastTour"]
+margin_right = 250.0
+margin_bottom = 150.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
 [connection signal="pressed" from="backButtonContainer/VBoxContainer/restartButton" to="backButtonContainer/VBoxContainer/restartButton" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="backButtonContainer/VBoxContainer/reverseButton" to="backButtonContainer/VBoxContainer/reverseButton" method="_on_reverseButton_pressed"]
 [connection signal="pressed" from="menuButtonContainer/HBoxContainer/soundButton" to="menuButtonContainer/HBoxContainer/menuButton" method="_on_soundButton_pressed"]

@@ -41,11 +41,14 @@ func _ready():
 
 func _enter_tree():
 	#get_tree().get_root().get_node("Level/UI/TextureRect/menuButtonContainer/HBoxContainer/soundButton").manipulated = true
+	MusicController.loud()
 	get_node("menuButtonContainer/HBoxContainer/soundButton").pressed = MusicController.InternalPaused
 
 func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 	var box = null
 	var prev = []
+	var id = 0
+	print (colorTab.size())
 	for colors in colorTab:
 		box = new_box.instance()
 		var color = 0
@@ -59,11 +62,14 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 				#shape.get_node()
 				color = color + 1
 		prev = colors
+		id+=1
+		if id >= colorTab.size():
+			box.isEndBlock = true
 		container.add_child(box)
-	box = new_box.instance()
-	box.isEndBlock = true
-	box.texture = load("res://colorPalette/UI_round_background_end.png")
-	container.add_child(box)
+#	box = new_box.instance()
+#	box.isEndBlock = true
+#	box.texture = load("res://colorPalette/UI_round_background_end.png")
+#	container.add_child(box)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
