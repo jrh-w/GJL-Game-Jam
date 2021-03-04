@@ -22,13 +22,13 @@ func play_sound(type):
 	
 	$SoundPlayer.play()
 
-func quiet():
-	
-	$MusicPlayer.volume_db = -10
-	
-func loud():
-	
-	$MusicPlayer.volume_db = 0
+#func quiet():
+#
+#	$MusicPlayer.volume_db = -10
+#
+#func loud():
+#
+#	$MusicPlayer.volume_db = 0
 
 func toggle(paused):
 	

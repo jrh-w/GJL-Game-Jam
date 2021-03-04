@@ -10,7 +10,7 @@ extends TextureButton
 #	pass
 
 func _on_menuButton_pressed():
-	MusicController.quiet()
+	#MusicController.quiet()
 	MusicController.play_sound("click")
 	get_tree().change_scene("res://menu.tscn")
 

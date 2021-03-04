@@ -41,7 +41,7 @@ func _ready():
 
 func _enter_tree():
 	#get_tree().get_root().get_node("Level/UI/TextureRect/menuButtonContainer/HBoxContainer/soundButton").manipulated = true
-	MusicController.loud()
+#	MusicController.loud()
 	get_node("menuButtonContainer/HBoxContainer/soundButton").pressed = MusicController.InternalPaused
 
 func get_colors(colorTab = colorTable, shapeTab = shapeTable):

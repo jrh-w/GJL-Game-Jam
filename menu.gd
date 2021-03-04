@@ -33,6 +33,6 @@ func _on_playButton_down():
 func _playLevel(levelName):
 	
 	MusicController.play_sound("click")
-	MusicController.loud()
+#	MusicController.loud()
 	
 	get_tree().change_scene("res://" + levelName + ".tscn")

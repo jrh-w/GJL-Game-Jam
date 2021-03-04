@@ -31,7 +31,7 @@ func _on_Button_pressed():
 	pauseScreen.hide()
 	pauseMenu.hide()
 	
-	MusicController.loud()
+	#MusicController.loud()
 	MusicController.play_sound("click")
 
 func lost():
@@ -40,11 +40,11 @@ func lost():
 	pauseScreen.show()
 	loseMenu.show()
 	
-	MusicController.quiet()
+	#MusicController.quiet()
 
 func won():
 	
-	MusicController.quiet()
+	#MusicController.quiet()
 	
 	#get_tree().paused = true
 	#pauseScreen.show()

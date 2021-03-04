@@ -1,2 +1,2 @@
-﻿52281
-C:\Users\JRW\Pobrane\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64.exe
+﻿50060
+D:\godot\Godot_v3.2.3-stable_mono_win64.exe
