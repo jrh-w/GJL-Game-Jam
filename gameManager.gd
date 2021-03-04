@@ -103,7 +103,7 @@ func backTwoRounds():
 func reverse_round():
 	
 	get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnNormal()
-	get_node("UI/TextureRect/LastTour").on = false
+	get_node("UI/TextureRect/LastTour").turn(false)
 	
 	if isLost: isLost = false
 	
@@ -159,4 +159,4 @@ func isWon():
 			MusicController.play_sound("lose")
 			isLost = true
 			get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnOrange()
-			get_node("UI/TextureRect/LastTour").on = true
+			get_node("UI/TextureRect/LastTour").turn(true)

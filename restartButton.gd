@@ -12,4 +12,4 @@ func turnOrange():
 	
 func turnNormal():
 	get_node(".").texture_normal = normalRestartButton
-	get_tree().get_root().get_node("Level/UI/TextureRect/LastTour").on = false
+	get_tree().get_root().get_node("Level/UI/TextureRect/LastTour").turn(false)
