@@ -13,4 +13,7 @@ texture_pressed = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="." to="." method="_on_menuButton_pressed"]

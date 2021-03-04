@@ -6,10 +6,6 @@ onready var levelMenu = get_node("CenterContainer/levelMenu")
 onready var creditsMenu = get_node("CenterContainer/creditsMenu")
 onready var creditsButton = get_node("creditsContainer")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _on_settingsButton_pressed():
 	
 	MusicController.play_sound("click")
@@ -40,11 +36,17 @@ func _playLevel(levelName):
 	get_tree().change_scene("res://" + levelName + ".tscn")
 
 func _on_creditsButton_pressed():
+	
+	MusicController.play_sound("click")
+	
 	creditsButton.visible = false
 	levelMenu.visible = false
 	creditsMenu.visible = true
 
 func _on_backCreditsButton_pressed():
+	
+	MusicController.play_sound("click")
+	
 	creditsMenu.visible = false
 	levelMenu.visible = true
 	creditsButton.visible = true
