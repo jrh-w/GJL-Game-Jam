@@ -88,13 +88,13 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="backButtonContainer"]
 margin_right = 100.0
 margin_bottom = 200.0
-custom_constants/separation = 10
+custom_constants/separation = 20
 alignment = 1
 
 [node name="restartButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
-margin_top = 15.0
+margin_top = 10.0
 margin_right = 100.0
-margin_bottom = 95.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 70, 80 )
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 11 )
@@ -103,9 +103,9 @@ stretch_mode = 5
 script = ExtResource( 4 )
 
 [node name="reverseButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
-margin_top = 105.0
+margin_top = 110.0
 margin_right = 100.0
-margin_bottom = 185.0
+margin_bottom = 190.0
 rect_min_size = Vector2( 70, 80 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 6 )
