@@ -20,59 +20,59 @@ script = ExtResource( 3 )
 [node name="innerGame" type="Node2D" parent="."]
 
 [node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 440, 100 )
+position = Vector2( 550, 200 )
 function = "padlock"
 color = "blue"
 padlockIdItsConnTo = 5
 
 [node name="dropzone2" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 540, 200 )
+position = Vector2( 650, 300 )
 function = "default"
 color = "none"
 
 [node name="dropzone3" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 540, 100 )
+position = Vector2( 650, 200 )
 function = "default"
 color = "light_blue"
 connectedPadlockId = 5
 
 [node name="dropzone4" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 440, 200 )
+position = Vector2( 550, 300 )
 function = "stop"
 color = "none"
 
 [node name="dropzone5" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 340, 200 )
+position = Vector2( 450, 300 )
 function = "padlock"
 color = "green"
 connectedPadlockId = 1
 padlockIdItsConnTo = 3
 
 [node name="dropzone6" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 340, 100 )
+position = Vector2( 450, 200 )
 function = "default"
 color = "none"
 
 [node name="dropzone7" parent="innerGame" instance=ExtResource( 11 )]
-position = Vector2( 440, 300 )
+position = Vector2( 550, 400 )
 function = "default"
 color = "orange"
 
 [node name="Node2D" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
-position = Vector2( 311.513, 101.152 )
+position = Vector2( 450, 196.906 )
 shape = "square"
 
 [node name="Node2D2" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
-position = Vector2( 590.691, 188.605 )
+position = Vector2( 650, 296.958 )
 
 [node name="Node2D3" parent="innerGame" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
-position = Vector2( 395.373, 334.273 )
+position = Vector2( 550, 406.089 )
 shape = "triangle"
 
 [node name="UI" type="Node" parent="."]
