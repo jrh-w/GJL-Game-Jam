@@ -1,17 +1,16 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://RocknRollOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://exitButton.gd" type="Script" id=3]
 [ext_resource path="res://menu.gd" type="Script" id=4]
 [ext_resource path="res://settingsMenu.gd" type="Script" id=5]
-[ext_resource path="res://colorPalette/UI_Button_menu.png" type="Texture" id=6]
-[ext_resource path="res://colorPalette/UI_Button_menu_1.png" type="Texture" id=7]
 [ext_resource path="res://levelMenu.gd" type="Script" id=8]
 [ext_resource path="res://colorPalette/Logo.png" type="Texture" id=9]
 [ext_resource path="res://ScrollContainer.gd" type="Script" id=10]
 [ext_resource path="res://colorPalette/scroll.tres" type="StyleBox" id=11]
 [ext_resource path="res://colorPalette/menu.tres" type="StyleBox" id=12]
+[ext_resource path="res://LevelTile.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -42,7 +41,7 @@ font_data = ExtResource( 1 )
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=11]
+[sub_resource type="Theme" id=8]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
@@ -52,10 +51,6 @@ VScrollBar/styles/grabber_highlight = ExtResource( 12 )
 VScrollBar/styles/grabber_pressed = ExtResource( 12 )
 VScrollBar/styles/scroll = ExtResource( 11 )
 VScrollBar/styles/scroll_focus = null
-
-[sub_resource type="DynamicFont" id=8]
-use_filter = true
-font_data = ExtResource( 1 )
 
 [node name="Menu" type="MarginContainer"]
 anchor_right = 1.0
@@ -319,336 +314,127 @@ margin_top = 150.0
 margin_right = 620.0
 margin_bottom = 450.0
 rect_min_size = Vector2( 620, 300 )
-theme = SubResource( 11 )
+theme = SubResource( 8 )
 scroll_horizontal_enabled = false
 script = ExtResource( 10 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer"]
 margin_right = 580.0
-margin_bottom = 462.0
+margin_bottom = 360.0
 custom_constants/separation = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer"]
 margin_right = 580.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 20
 
 [node name="levelButton" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer"]
 margin_right = 100.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level1" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 1"
-align = 1
-valign = 1
+[node name="Level1" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton" instance=ExtResource( 13 )]
 
 [node name="levelButton2" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer"]
 margin_left = 120.0
 margin_right = 220.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level2" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton2" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton2"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 2"
-align = 1
-valign = 1
+[node name="Level2" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton2" instance=ExtResource( 13 )]
 
 [node name="levelButton3" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer"]
 margin_left = 240.0
 margin_right = 340.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level3" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton3" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton3"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 3"
-align = 1
-valign = 1
+[node name="Level3" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton3" instance=ExtResource( 13 )]
 
 [node name="levelButton4" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer"]
 margin_left = 360.0
 margin_right = 460.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level4" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton4" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton4"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 4"
-align = 1
-valign = 1
+[node name="Level4" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton4" instance=ExtResource( 13 )]
 
 [node name="levelButton5" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer"]
 margin_left = 480.0
 margin_right = 580.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level5" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton5" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton5"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 5"
-align = 1
-valign = 1
+[node name="Level5" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer/levelButton5" instance=ExtResource( 13 )]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer"]
-margin_top = 164.0
+margin_top = 130.0
 margin_right = 580.0
-margin_bottom = 298.0
+margin_bottom = 230.0
 custom_constants/separation = 20
 
 [node name="levelButton6" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 100.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level6" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton6" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton6"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 6"
-align = 1
-valign = 1
+[node name="Level6" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton6" instance=ExtResource( 13 )]
 
 [node name="levelButton7" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 120.0
 margin_right = 220.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level7" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton7" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton7"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 7"
-align = 1
-valign = 1
+[node name="Level7" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton7" instance=ExtResource( 13 )]
 
 [node name="levelButton8" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 240.0
 margin_right = 340.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level8" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton8" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton8"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 8"
-align = 1
-valign = 1
+[node name="Level8" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton8" instance=ExtResource( 13 )]
 
 [node name="levelButton9" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 360.0
 margin_right = 460.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level9" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton9" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton9"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 9"
-align = 1
-valign = 1
+[node name="Level9" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton9" instance=ExtResource( 13 )]
 
 [node name="levelButton10" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 480.0
 margin_right = 580.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level10" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton10" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton10"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 10"
-align = 1
-valign = 1
+[node name="Level10" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton10" instance=ExtResource( 13 )]
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer"]
-margin_top = 328.0
+margin_top = 260.0
 margin_right = 580.0
-margin_bottom = 462.0
+margin_bottom = 360.0
 custom_constants/separation = 20
 
 [node name="levelButton11" type="VBoxContainer" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer3"]
 margin_right = 100.0
-margin_bottom = 134.0
+margin_bottom = 100.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Level11" type="TextureButton" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer3/levelButton11" groups=[
-"levels",
-]]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer3/levelButton11"]
-margin_top = 110.0
-margin_right = 100.0
-margin_bottom = 134.0
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 11"
-align = 1
-valign = 1
+[node name="Level11" parent="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer3/levelButton11" instance=ExtResource( 13 )]
 [connection signal="button_down" from="CenterContainer/mainMenu/CenterContainer2/Label/Button" to="." method="_on_playButton_down"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer3/Label/settingsButton" to="." method="_on_settingsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" to="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" method="_on_exitButton_pressed"]
