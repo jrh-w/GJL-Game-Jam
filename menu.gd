@@ -1,8 +1,10 @@
-extends MarginContainer
+extends TextureRect
 
 onready var mainMenu = get_node("CenterContainer/mainMenu")
 onready var settingsMenu = get_node("CenterContainer/settingsMenu")
 onready var levelMenu = get_node("CenterContainer/levelMenu")
+onready var creditsMenu = get_node("CenterContainer/creditsMenu")
+onready var creditsButton = get_node("creditsContainer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,3 +38,13 @@ func _playLevel(levelName):
 #	MusicController.loud()
 	
 	get_tree().change_scene("res://" + levelName + ".tscn")
+
+func _on_creditsButton_pressed():
+	creditsButton.visible = false
+	levelMenu.visible = false
+	creditsMenu.visible = true
+
+func _on_backCreditsButton_pressed():
+	creditsMenu.visible = false
+	levelMenu.visible = true
+	creditsButton.visible = true
