@@ -22,23 +22,7 @@ func play_sound(type):
 	
 	$SoundPlayer.play()
 
-#func quiet():
-#
-#	$MusicPlayer.volume_db = -10
-#
-#func loud():
-#
-#	$MusicPlayer.volume_db = 0
-
 func toggle(paused):
 	
 	$MusicPlayer.stream_paused = paused
 	InternalPaused = paused
-
-#func soundMute():
-#
-#	$SoundPlayer.stream_paused = true
-#
-#func soundUnMute():
-#
-#	$SoundPlayer.stream_paused = false

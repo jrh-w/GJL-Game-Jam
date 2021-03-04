@@ -1,10 +1,5 @@
 extends VBoxContainer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 onready var optionMenu = get_node("HBoxContainer/optionMenu")
 onready var fullscreenOption = get_node("fullscreen/isFullscreen")
 
