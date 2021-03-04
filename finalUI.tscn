@@ -77,7 +77,7 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -70.0
+margin_left = -100.0
 margin_top = -100.0
 margin_bottom = 100.0
 mouse_filter = 2
@@ -86,15 +86,16 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="backButtonContainer"]
-margin_right = 70.0
+margin_right = 100.0
 margin_bottom = 200.0
+custom_constants/separation = 10
 alignment = 1
 
 [node name="restartButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
-margin_top = 38.0
-margin_right = 70.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 40, 60 )
+margin_top = 15.0
+margin_right = 100.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 70, 80 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 11 )
 expand = true
@@ -102,10 +103,10 @@ stretch_mode = 5
 script = ExtResource( 4 )
 
 [node name="reverseButton" type="TextureButton" parent="backButtonContainer/VBoxContainer"]
-margin_top = 102.0
-margin_right = 70.0
-margin_bottom = 162.0
-rect_min_size = Vector2( 70, 60 )
+margin_top = 105.0
+margin_right = 100.0
+margin_bottom = 185.0
+rect_min_size = Vector2( 70, 80 )
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 6 )
 expand = true
