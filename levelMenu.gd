@@ -29,7 +29,6 @@ func defineLevelAccess():
 			button.disabled = false
 			button.texture_normal = level_normal
 			button.get_node("Label").text = str(iterator + 1)
-			#button.texture_pressed = level_pressed
 		iterator += 1
 
 func load_progress():

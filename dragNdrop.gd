@@ -60,7 +60,6 @@ func _input(event):
 					shortest_dist = distance
 					
 			if tempRestPoint != null:
-				#if !tempRestPoint.busy && rest_point.global_position.distance_to(tempRestPoint.global_position) < 110:
 				# Player can now move between any 2 cubes on level
 				if !tempRestPoint.busy:
 					rest_point.deselect()
@@ -85,7 +84,6 @@ func _input(event):
 					print("matching color")
 					onMatchingPos = true
 					padlockId = rest_point.matched()
-					#print("Get padlock'ed")
 				else:
 					onMatchingPos = false
 				

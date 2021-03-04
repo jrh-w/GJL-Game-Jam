@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://RocknRollOne-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://exitButton.gd" type="Script" id=3]
 [ext_resource path="res://menu.gd" type="Script" id=4]
 [ext_resource path="res://settingsMenu.gd" type="Script" id=5]
+[ext_resource path="res://colorPalette/box_background.png" type="Texture" id=6]
+[ext_resource path="res://Nunito-Bold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://levelMenu.gd" type="Script" id=8]
 [ext_resource path="res://colorPalette/Logo.png" type="Texture" id=9]
 [ext_resource path="res://ScrollContainer.gd" type="Script" id=10]
@@ -19,6 +20,13 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Button
+
+func _on_Button_button_down():
+	get_tree().change_scene(\"res://Scene.tscn\")
+"
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -52,7 +60,12 @@ VScrollBar/styles/grabber_pressed = ExtResource( 12 )
 VScrollBar/styles/scroll = ExtResource( 11 )
 VScrollBar/styles/scroll_focus = null
 
-[node name="Menu" type="MarginContainer"]
+[sub_resource type="DynamicFont" id=9]
+size = 32
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="Menu" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
@@ -111,7 +124,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 flat = true
-script = ExtResource( 2 )
+script = SubResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -437,6 +450,76 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="creditsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+margin_left = 252.0
+margin_top = 107.0
+margin_right = 771.0
+margin_bottom = 492.0
+
+[node name="Label" type="Label" parent="CenterContainer/creditsMenu"]
+margin_right = 519.0
+margin_bottom = 333.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.227451, 0.188235, 0.176471, 1 )
+text = "Programming: Gendarme, DeVoxi
+
+Art & Game design: Olga Rudnicka
+
+Sound design: Harry Nixon
+
+Music: Callum Clarke"
+
+[node name="backToLevel" type="Label" parent="CenterContainer/creditsMenu"]
+margin_top = 337.0
+margin_right = 519.0
+margin_bottom = 385.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.227451, 0.188235, 0.176471, 1 )
+custom_colors/font_color_shadow = Color( 0.227451, 0.188235, 0.176471, 1 )
+text = "< Back"
+align = 1
+valign = 1
+
+[node name="backButton" type="TextureButton" parent="CenterContainer/creditsMenu/backToLevel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -20.0
+margin_right = 60.0
+margin_bottom = 20.0
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditsContainer" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -150.0
+margin_right = 150.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="creditsContainer"]
+margin_right = 150.0
+margin_bottom = 150.0
+alignment = 1
+
+[node name="creditsButton" type="TextureButton" parent="creditsContainer/VBoxContainer"]
+margin_top = 35.0
+margin_right = 150.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 150, 80 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 5
 [connection signal="button_down" from="CenterContainer/mainMenu/CenterContainer2/Label/Button" to="." method="_on_playButton_down"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer3/Label/settingsButton" to="." method="_on_settingsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" to="CenterContainer/mainMenu/CenterContainer4/Label/exitButton" method="_on_exitButton_pressed"]
@@ -454,3 +537,5 @@ __meta__ = {
 [connection signal="pressed" from="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer2/levelButton10/Level10" to="." method="_playLevel" binds= [ "Level10" ]]
 [connection signal="pressed" from="CenterContainer/levelMenu/ScrollContainer/VBoxContainer/HBoxContainer3/levelButton11/Level11" to="." method="_playLevel" binds= [ "Level11" ]]
 [connection signal="pressed" from="CenterContainer/levelMenu/Label2/backButton" to="." method="_on_backButton_pressed"]
+[connection signal="pressed" from="CenterContainer/creditsMenu/backToLevel/backButton" to="." method="_on_backCreditsButton_pressed"]
+[connection signal="pressed" from="creditsContainer/VBoxContainer/creditsButton" to="." method="_on_creditsButton_pressed"]

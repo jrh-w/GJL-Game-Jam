@@ -6,7 +6,6 @@ var normalRestartButton = load("res://colorPalette/UI_Button_restart.png")
 func _on_TextureButton_pressed():
 	turnNormal()
 	get_tree().get_root().get_node("Level").restart_round()
-	pass # Replace with function body.
 
 func turnOrange():
 	get_node(".").texture_normal = orangeRestartButton

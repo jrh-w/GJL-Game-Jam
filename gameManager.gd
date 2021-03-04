@@ -22,7 +22,6 @@ signal timeout
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rounds = get_node("UI/TextureRect").colorTable.size()
-	pass # Replace with function body.
 
 func new_log(name, a, b, isExecuted):
 	var n = {
@@ -40,7 +39,6 @@ func new_log(name, a, b, isExecuted):
 			# Such is the needed transition between the blocks
 			get_node("UI/TextureRect").offset += OFFSET
 		history.push_front(n)
-		#isWon()
 
 func update_log(padlockId):
 	var route = history.pop_front()
@@ -75,7 +73,7 @@ func restart_round():
 			drop.init()
 		
 		roundEnd = false
-		#currentRound = 0
+		
 	isLost = false
 	isWon = false
 
@@ -115,7 +113,6 @@ func reverse_round():
 		
 		var route = history.pop_front()
 		
-		#if !route.from.busy:
 		if route.from.function == "padlock":
 			route.from.open()
 			
@@ -140,8 +137,6 @@ func reverse_round():
 			currentRound -= 1
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
-		#else:
-		#history.push_front(route)
 
 func isWon():
 	var areAllMatched = true
@@ -151,7 +146,6 @@ func isWon():
 			areAllMatched = true
 		else:
 			areAllMatched = false
-	#print(areAllMatched)
 	
 	if areAllMatched:
 		if !isWon:
@@ -162,11 +156,6 @@ func isWon():
 			yield(get_tree().create_timer(0.5), "timeout")
 			get_node("UI").won()
 	elif roundEnd:
-#		yield(get_tree().create_timer(0.5), "timeout")
-#		for cube in get_tree().get_nodes_in_group("kotki"):
-#			cube.get_node("pobrane").modulate = "3a302d"
-#			cube.get_node("onPaused").visible = false
-		#get_node("UI").lost()\
 			MusicController.play_sound("lose")
 			isLost = true
 			get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnOrange()
