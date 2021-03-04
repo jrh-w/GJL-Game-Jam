@@ -73,10 +73,16 @@ func get_colors(colorTab = colorTable, shapeTab = shapeTable):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
+	#vect.x += 3 * container.get_child_count()
+	#vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) + offset
+	#vect.y = get_node("arrowContainer").rect_position.y
+	#get_node("arrowContainer").set_position(vect)
+	pass
+
+func _physics_process(delta):
 	var vect = Vector2(container.get_child(0).get_size() * container.get_child_count())
 	vect.x += 3 * container.get_child_count()
 	vect.x = (container.get_global_rect().size.x / 2) - (vect.x / 2) + offset
 	vect.y = get_node("arrowContainer").rect_position.y
-	#print(6 * (get_viewport().size.x / 1024))
-	get_node("arrowContainer").set_position(vect)
-	pass
+	get_node("arrowContainer").set_position( lerp(get_node("arrowContainer").rect_position, vect, 10 * delta) )
