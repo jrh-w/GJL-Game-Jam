@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://dragNdrop.gd" type="Script" id=1]
 [ext_resource path="res://colorPalette/box_circle.png" type="Texture" id=2]
 [ext_resource path="res://colorPalette/box_background_stop_1.png" type="Texture" id=3]
+[ext_resource path="res://colorPalette/X.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 488.045
@@ -22,6 +23,13 @@ shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 
 [node name="onPaused" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.09, 0.09 )
 texture = ExtResource( 3 )
+
+[node name="onFailed" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.227451, 0.188235, 0.176471, 1 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 4 )
 [connection signal="input_event" from="pobrane/Area2D" to="." method="_on_Area2D_input_event"]

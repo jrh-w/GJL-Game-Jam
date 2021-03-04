@@ -68,6 +68,7 @@ func restart_round():
 				
 		for cube in get_tree().get_nodes_in_group("kotki"):
 			cube.updateColor()
+			cube.get_node("onFailed").visible = false
 			
 		for drop in get_tree().get_nodes_in_group("zone"):
 			drop.init()
@@ -104,6 +105,7 @@ func reverse_round():
 	
 	get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnNormal()
 	get_node("UI/TextureRect/LastTour").turn(false)
+	setCubesXvisibility(false)
 	
 	if isLost: isLost = false
 	
@@ -160,3 +162,8 @@ func isWon():
 			isLost = true
 			get_node("UI/TextureRect/backButtonContainer/VBoxContainer/restartButton").turnOrange()
 			get_node("UI/TextureRect/LastTour").turn(true)
+			setCubesXvisibility(true)
+
+func setCubesXvisibility(value):
+	for cube in get_tree().get_nodes_in_group("kotki"):
+		cube.get_node("onFailed").visible = value
