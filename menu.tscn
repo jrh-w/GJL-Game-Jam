@@ -77,15 +77,21 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0.976471, 0.941176, 0.882353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="mainMenu" type="VBoxContainer" parent="CenterContainer"]
 visible = false
@@ -280,7 +286,7 @@ __meta__ = {
 }
 
 [node name="levelMenu" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 202.0
+margin_left = 203.0
 margin_top = 75.0
 margin_right = 822.0
 margin_bottom = 525.0
