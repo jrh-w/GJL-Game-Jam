@@ -20,8 +20,11 @@ script = ExtResource( 10 )
 [node name="innerGame" type="Node" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="innerGame"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
