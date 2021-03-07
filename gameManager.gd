@@ -53,9 +53,9 @@ func restart_round():
 	
 		while history.size() > 0:
 			var route = history.pop_front()
-			get_node("innerGame/" + route.card).rest_point.deselect(true)
-			get_node("innerGame/" + route.card).rest_point = route.from
-			get_node("innerGame/" + route.card).rest_point.select(true)
+			get_node("innerGame/CenterContainer/" + route.card).rest_point.deselect(true)
+			get_node("innerGame/CenterContainer/" + route.card).rest_point = route.from
+			get_node("innerGame/CenterContainer/" + route.card).rest_point.select(true)
 			if route.to.function == "back" && route.moveExecuted:
 				get_node("UI/TextureRect").offset += route.moveExecuted * OFFSET
 				currentRound += route.moveExecuted
@@ -118,9 +118,9 @@ func reverse_round():
 		if route.from.function == "padlock":
 			route.from.open()
 			
-		get_node("innerGame/" + route.card).rest_point.deselect(true)
-		get_node("innerGame/" + route.card).rest_point = route.from
-		get_node("innerGame/" + route.card).rest_point.select(true)
+		get_node("innerGame/CenterContainer/" + route.card).rest_point.deselect(true)
+		get_node("innerGame/CenterContainer/" + route.card).rest_point = route.from
+		get_node("innerGame/CenterContainer/" + route.card).rest_point.select(true)
 		
 		print(route.padlockUnlocked)
 		# If not null, a padlock was unlocked

@@ -17,45 +17,56 @@ script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="innerGame" type="Node2D" parent="."]
+[node name="innerGame" type="Node" parent="."]
 
-[node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
+[node name="CenterContainer" type="CenterContainer" parent="innerGame"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dropzone1" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 440, 250 )
 function = "default"
 color = "yellow"
 
-[node name="dropzone2" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone2" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 540, 250 )
 function = "default"
 color = "green"
 
-[node name="dropzone3" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone3" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 640, 250 )
 function = "back"
 color = "none"
 
-[node name="dropzone4" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone4" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 440, 350 )
 function = "default"
 color = "none"
 
-[node name="dropzone5" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone5" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 540, 350 )
 function = "default"
 color = "orange"
 
-[node name="Node2D" parent="innerGame" groups=[
+[node name="Node2D" parent="innerGame/CenterContainer" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
 position = Vector2( 402.152, 350 )
 shape = "triangle"
 
-[node name="Node2D2" parent="innerGame" groups=[
+[node name="Node2D2" parent="innerGame/CenterContainer" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
 position = Vector2( 400.486, 250 )
 
-[node name="Node2D3" parent="innerGame" groups=[
+[node name="Node2D3" parent="innerGame/CenterContainer" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
 position = Vector2( 551.515, 350 )

@@ -17,59 +17,70 @@ script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="innerGame" type="Node2D" parent="."]
+[node name="innerGame" type="Node" parent="."]
 
-[node name="dropzone1" parent="innerGame" instance=ExtResource( 11 )]
+[node name="CenterContainer" type="CenterContainer" parent="innerGame"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dropzone1" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 550, 200 )
 function = "padlock"
 color = "blue"
 padlockIdItsConnTo = 5
 
-[node name="dropzone2" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone2" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 650, 300 )
 function = "default"
 color = "none"
 
-[node name="dropzone3" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone3" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 650, 200 )
 function = "default"
 color = "light_blue"
 connectedPadlockId = 5
 
-[node name="dropzone4" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone4" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 550, 300 )
 function = "stop"
 color = "none"
 
-[node name="dropzone5" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone5" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 450, 300 )
 function = "padlock"
 color = "green"
 connectedPadlockId = 1
 padlockIdItsConnTo = 3
 
-[node name="dropzone6" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone6" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 450, 200 )
 function = "default"
 color = "none"
 
-[node name="dropzone7" parent="innerGame" instance=ExtResource( 11 )]
+[node name="dropzone7" parent="innerGame/CenterContainer" instance=ExtResource( 11 )]
 position = Vector2( 550, 400 )
 function = "default"
 color = "orange"
 
-[node name="Node2D" parent="innerGame" groups=[
+[node name="Node2D" parent="innerGame/CenterContainer" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
 position = Vector2( 450, 196.906 )
 shape = "square"
 
-[node name="Node2D2" parent="innerGame" groups=[
+[node name="Node2D2" parent="innerGame/CenterContainer" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
 position = Vector2( 650, 296.958 )
 
-[node name="Node2D3" parent="innerGame" groups=[
+[node name="Node2D3" parent="innerGame/CenterContainer" groups=[
 "kotki",
 ] instance=ExtResource( 9 )]
 position = Vector2( 550, 406.089 )
